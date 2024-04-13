@@ -1,5 +1,5 @@
 import icons from "../../images/icons.svg";
-import home from "../../images/home.jpg";
+import home from "../../images/home1x.png";
 
 const Home = () => {
   return (
