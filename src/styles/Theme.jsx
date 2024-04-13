@@ -1,12 +1,12 @@
 export const theme = {
   colors: {
-    blackColor: "#040404",
-    orangeColor: "#e6533c",
-    orangeLightColor: "#ef8964",
-    biegeColor: "#efa082",
-    whiteColor: "#efede8",
-    greyColor: "EFEDE8",
-    grayInput: "rgba(239, 237, 232, 0.30)",
+    white: "#fbfbfb",
+    green: "#103931",
+    black: "#11101c",
+    borderColor: "rgba(251, 251, 251, 0.4)",
+    textGrayColor: "rgba(17, 16, 28, 0.5)",
+    gradientColor: "rgba(18, 20, 23, 0.6)",
+
     modalOverlay: "rgba(4, 4, 4, 0.4)",
 
     darkGrayColor: "#303030",
@@ -16,18 +16,6 @@ export const theme = {
     hoverColor: "#e6533c",
     successtColor: "#3cbf61",
     errorColor: "#d80027",
-
-    //product cart
-
-    recommendedColor: "#419B09",
-    notRecommendedColor: "#E9101D",
-    selectBgrColor: "#1c1c1c",
-    cardBgColor: "rgba(239, 237, 232, 0.05)",
-    cardBorderColor: "rgba(239, 237, 232, 0.2)",
-    captionColor: "rgba(239, 237, 232, 0.4)",
-    fornCaptionColor: "rgba(239, 237, 232, 0.5)",
-    cardTextColor: "rgba(239, 237, 232, 0.8)",
-    backgroundColorScroll: "rgba(239, 237, 232, 0.1)",
   },
 
   radii: {

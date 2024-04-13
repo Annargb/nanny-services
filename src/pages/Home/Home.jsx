@@ -1,18 +1,33 @@
+import * as n from "./Home.styled";
 import icons from "../../images/icons.svg";
-import home from "../../images/home1x.png";
 
 const Home = () => {
   return (
-    <div>
-      <p>Home</p>
-      <svg>
-        <use
-          href={`${icons}#icon-heart`}
-          style={{ width: "30px", height: "30px" }}
-        />
-      </svg>
-      <img src={home} alt="home" style={{ width: "300px", height: "150px" }} />
-    </div>
+    <n.HomeWrapper>
+      <n.TextWrapper>
+        <n.Title>Make Life Easier for the Family:</n.Title>
+        <n.Text>Find Babysitters Online for All Occasions</n.Text>
+        <n.RedirectLink to="/nannies">
+          Get started
+          <n.ArrowUp>
+            <use href={`${icons}#arrow-up`} />
+          </n.ArrowUp>
+        </n.RedirectLink>
+      </n.TextWrapper>
+      <n.ImgWrapper>
+        <n.InfoWrapper>
+          <n.CheckWrapper>
+            <n.CheckIcon>
+              <use href={`${icons}#check`} />
+            </n.CheckIcon>
+          </n.CheckWrapper>
+          <div>
+            <n.InfoText>Experienced nannies</n.InfoText>
+            <n.InfoCount>15,000</n.InfoCount>
+          </div>
+        </n.InfoWrapper>
+      </n.ImgWrapper>
+    </n.HomeWrapper>
   );
 };
 

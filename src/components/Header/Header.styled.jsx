@@ -1,0 +1,104 @@
+import styled from "styled-components";
+import { NavLink, Link } from "react-router-dom";
+
+export const Header = styled.header`
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 1376px;
+  padding: 20px 96px;
+  border-bottom: 1px solid;
+  border-color: ${(p) => p.theme.colors.borderColor};
+  /* background-color: ${(p) => p.theme.colors.green}; */
+  background-color: ${({ $variant }) => {
+    switch ($variant) {
+      case true:
+        return "transparrent";
+      default:
+        return (p) => p.theme.colors.green;
+    }
+  }};
+
+  position: ${({ $variant }) => {
+    switch ($variant) {
+      case true:
+        return "absolute";
+      default:
+        return "static";
+    }
+  }};
+`;
+
+export const LinkButtonWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 92px;
+`;
+
+export const NavWrapper = styled.nav`
+  display: flex;
+  align-items: center;
+  gap: 40px;
+`;
+
+export const HeaderLink = styled(NavLink)`
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: ${(p) => p.theme.colors.white};
+
+  /* &:active::after {
+    content: "";
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin: 0 auto;
+    margin-top: 4px;
+  } */
+`;
+
+export const Logo = styled(Link)`
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.17;
+  letter-spacing: -0.02em;
+  color: ${(p) => p.theme.colors.white};
+`;
+
+export const ButtonWrapper = styled.ul`
+  display: flex;
+  gap: 8px;
+`;
+
+export const LogInButton = styled.button`
+  padding: 14px 39px;
+  background-color: transparent;
+  border: 1px solid;
+  border-color: ${(p) => p.theme.colors.borderColor};
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: ${(p) => p.theme.colors.white};
+`;
+
+export const RegistrationButton = styled(LogInButton)`
+  padding: 14px 40px;
+  background-color: ${(p) => p.theme.colors.green};
+  border: none;
+  transition:
+    color 250ms ${(p) => p.theme.transition},
+    background-color 250ms ${(p) => p.theme.transition};
+
+  &:hover,
+  &:focus {
+    color: ${(p) => p.theme.colors.green};
+    background-color: ${(p) => p.theme.colors.white};
+  }
+`;

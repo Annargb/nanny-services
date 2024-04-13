@@ -1,15 +1,30 @@
-import { NavLink } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import * as n from "./Header.styled";
 
-const Header = () => {
+export const Header = () => {
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+
   return (
-    <header>
-      <nav>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/nannies">Nannies</NavLink>
-        <NavLink to="/favorites">Favorites</NavLink>
-      </nav>
-    </header>
+    <n.Header $variant={isHomePage}>
+      <n.Logo>Nanny.Services</n.Logo>
+      <n.LinkButtonWrapper>
+        <n.NavWrapper>
+          <n.HeaderLink to="/">Home</n.HeaderLink>
+          <n.HeaderLink to="/nannies">Nannies</n.HeaderLink>
+          <n.HeaderLink to="/favorites">Favorites</n.HeaderLink>
+        </n.NavWrapper>
+        <n.ButtonWrapper>
+          <li>
+            <n.LogInButton type="button">Log In</n.LogInButton>
+          </li>
+          <li>
+            <n.RegistrationButton type="button">
+              Registration
+            </n.RegistrationButton>
+          </li>
+        </n.ButtonWrapper>
+      </n.LinkButtonWrapper>
+    </n.Header>
   );
 };
-
-export default Header;
