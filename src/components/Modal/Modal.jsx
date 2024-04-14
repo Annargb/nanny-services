@@ -1,4 +1,6 @@
 import Modal from "react-modal";
+import * as n from "./Modal.styled";
+import icons from "../../images/icons.svg";
 
 const customStyles = {
   overlay: {
@@ -24,9 +26,19 @@ const customStyles = {
 
 Modal.setAppElement("#root");
 
-export const CommonModal = ({ children }) => {
+export const CommonModal = ({ children, isModalOpen, closeModal }) => {
   return (
-    <Modal style={customStyles} contentLabel="Custom Modal">
+    <Modal
+      isOpen={isModalOpen}
+      onRequestClose={closeModal}
+      style={customStyles}
+      contentLabel="Custom Modal"
+    >
+      <n.CloseButton type="button" onClick={closeModal}>
+        <n.CloseIcon>
+          <use href={`${icons}#close`} />
+        </n.CloseIcon>
+      </n.CloseButton>
       {children}
     </Modal>
   );
