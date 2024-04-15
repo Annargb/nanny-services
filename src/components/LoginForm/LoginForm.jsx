@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import icons from "../../images/icons.svg";
 import * as n from "../RegistrationForm/RegistrationForm.styled";
-
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase/firebase";
+import toast from "react-hot-toast";
 const emailPattern = /^[a-z0-9._%+-]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+$/;
 
 const validationSchema = Yup.object().shape({
@@ -23,6 +26,29 @@ const validationSchema = Yup.object().shape({
 
 export const LoginForm = () => {
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
+  // const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSubmit = async ({ email, password }) => {
+    // setLoading(true);
+
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      const user = userCredential.user;
+      console.log(user);
+      // setLoading(false);
+      toast.success("Successfully logged in");
+      navigate("/nannies");
+    } catch (error) {
+      // setLoading(false);
+      toast.error(error.message);
+    }
+  };
 
   return (
     <Formik
@@ -31,7 +57,7 @@ export const LoginForm = () => {
         password: "",
       }}
       validationSchema={validationSchema}
-      //   onSubmit={handleSubmit}
+      onSubmit={handleSubmit}
     >
       <n.Form>
         <n.FormTitle>Log In</n.FormTitle>

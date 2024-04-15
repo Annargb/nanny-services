@@ -1,8 +1,15 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import icons from "../../images/icons.svg";
 import * as n from "./RegistrationForm.styled";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+// import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { setDoc, doc } from "firebase/firestore";
+// import { auth, storage, db } from "../../firebase/firebase";
+import { auth, db } from "../../firebase/firebase";
+import toast from "react-hot-toast";
 
 const emailPattern = /^[a-z0-9._%+-]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+$/;
 
@@ -28,6 +35,42 @@ const validationSchema = Yup.object().shape({
 
 export const RegistrationForm = () => {
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSubmit = async ({ name, email, password }, { resetForm }) => {
+    try {
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      //
+      // const storageRef = ref(storage, `images/${Date.now() + name}`);
+      // const uploadTask = uploadBytesResumable(storageRef, file)
+      const user = userCredential.user;
+      console.log(user);
+
+      await updateProfile(user, {
+        displayName: name,
+      });
+
+      await setDoc(doc(db, "users", user.uid), {
+        uid: user.uid,
+        displayName: name,
+        email,
+      });
+      // setisLoading(false);
+      toast.success("Account created");
+      navigate("/nannies");
+    } catch (error) {
+      // setisLoading(false);
+      toast.error("Something went wrong");
+    }
+
+    //  !isLoading && !error && resetForm();
+    resetForm();
+  };
 
   return (
     <Formik
@@ -37,7 +80,7 @@ export const RegistrationForm = () => {
         password: "",
       }}
       validationSchema={validationSchema}
-      //   onSubmit={handleSubmit}
+      onSubmit={handleSubmit}
     >
       <n.Form>
         <n.FormTitle>Registration</n.FormTitle>
