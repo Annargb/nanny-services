@@ -3,9 +3,11 @@ import { useLocation } from "react-router-dom";
 import { CommonModal } from "../Modal/Modal";
 import * as n from "./Header.styled";
 import { RegistrationForm } from "../RegistrationForm/RegistrationForm";
+import { LoginForm } from "../LoginForm/LoginForm";
 
 export const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalForm, setModalForm] = useState("");
   const location = useLocation();
   const isHomePage = location.pathname === "/";
 
@@ -19,6 +21,16 @@ export const Header = () => {
     document.body.style.overflow = "";
   };
 
+  const register = () => {
+    setModalForm("register");
+    openModal();
+  };
+
+  const login = () => {
+    setModalForm("login");
+    openModal();
+  };
+
   return (
     <n.Header $variant={isHomePage}>
       <n.Logo>Nanny.Services</n.Logo>
@@ -30,19 +42,20 @@ export const Header = () => {
         </n.NavWrapper>
         <n.ButtonWrapper>
           <li>
-            <n.LogInButton type="button" onClick={openModal}>
+            <n.LogInButton type="button" onClick={login}>
               Log In
             </n.LogInButton>
           </li>
           <li>
-            <n.RegistrationButton type="button" onClick={openModal}>
+            <n.RegistrationButton type="button" onClick={register}>
               Registration
             </n.RegistrationButton>
           </li>
         </n.ButtonWrapper>
       </n.LinkButtonWrapper>
       <CommonModal isModalOpen={isModalOpen} closeModal={closeModal}>
-        <RegistrationForm />
+        {modalForm === "register" && <RegistrationForm />}
+        {modalForm === "login" && <LoginForm />}
       </CommonModal>
     </n.Header>
   );

@@ -6,6 +6,8 @@ export const theme = {
     borderColor: "rgba(251, 251, 251, 0.4)",
     textGrayColor: "rgba(17, 16, 28, 0.5)",
     gradientColor: "rgba(18, 20, 23, 0.6)",
+    inputBorderColor: "rgba(17, 16, 28, 0.1)",
+    red: "#d80027",
 
     modalOverlay: "rgba(4, 4, 4, 0.4)",
 
@@ -15,7 +17,6 @@ export const theme = {
     accentColor: "rgba(239, 237, 232, 0.3)",
     hoverColor: "#e6533c",
     successtColor: "#3cbf61",
-    errorColor: "#d80027",
   },
 
   radii: {
@@ -25,5 +26,5 @@ export const theme = {
 
   spacing: (value) => `${value * 4}px`,
 
-  transition: "cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+  transition: "linear",
 };

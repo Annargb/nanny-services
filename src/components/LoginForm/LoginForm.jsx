@@ -2,16 +2,11 @@ import { useState } from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import icons from "../../images/icons.svg";
-import * as n from "./RegistrationForm.styled";
+import * as n from "../RegistrationForm/RegistrationForm.styled";
 
 const emailPattern = /^[a-z0-9._%+-]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+$/;
 
 const validationSchema = Yup.object().shape({
-  name: Yup.string()
-    .trim()
-    .min(2, "Name must contain at least 2 characters")
-    .max(40, "Too long name")
-    .required("Name is required"),
   email: Yup.string()
     .trim()
     .matches(
@@ -26,13 +21,12 @@ const validationSchema = Yup.object().shape({
     .required("Password is required!"),
 });
 
-export const RegistrationForm = () => {
+export const LoginForm = () => {
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
 
   return (
     <Formik
       initialValues={{
-        name: "",
         email: "",
         password: "",
       }}
@@ -40,18 +34,12 @@ export const RegistrationForm = () => {
       //   onSubmit={handleSubmit}
     >
       <n.Form>
-        <n.FormTitle>Registration</n.FormTitle>
+        <n.FormTitle>Log In</n.FormTitle>
         <n.FormText>
-          Thank you for your interest in our platform! In order to register, we
-          need some information. Please provide us with the following
-          information.
+          Welcome back! Please enter your credentials to access your account and
+          continue your babysitter search.
         </n.FormText>
         <n.InputWrapper>
-          <n.FormGroup>
-            <n.Field name="name" type="text" placeholder="Name" />
-            <n.ErrorMessage name="name" component="span" required />
-          </n.FormGroup>
-
           <n.FormGroup>
             <n.Field name="email" type="email" placeholder="Email" />
             <n.ErrorMessage name="email" component="span" required />

@@ -10,4 +10,10 @@ export const CloseButton = styled.button`
 export const CloseIcon = styled.svg`
   width: 20px;
   height: 20px;
+  transition: fill 250ms ${(p) => p.theme.transition};
+
+  &:hover,
+  &:focus {
+    fill: ${(p) => p.theme.colors.green};
+  }
 `;

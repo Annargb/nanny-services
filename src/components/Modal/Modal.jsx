@@ -11,6 +11,7 @@ const customStyles = {
     left: "50%",
     right: "auto",
     bottom: "auto",
+    // zIndex: "999999",
     width: "565px",
     minHeight: "489px",
     maxHeight: "579px",
@@ -24,7 +25,7 @@ const customStyles = {
   },
 };
 
-Modal.setAppElement("#root");
+Modal.setAppElement("#modal");
 
 export const CommonModal = ({ children, isModalOpen, closeModal }) => {
   return (

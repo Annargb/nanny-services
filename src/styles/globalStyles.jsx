@@ -76,6 +76,7 @@ img {
 
 input, textarea, select, button {
   font: inherit;
+  outline: none;
 }
 
 button {
