@@ -1,4 +1,4 @@
-import{u as r,L as i,j as o,i as t}from"./index-d38f76aa.js";import{h as n}from"./home1x-0c9ce9af.js";const s="/nanny-services/assets/home2x-1ca38526.png",h=r.div`
+import{u as r,L as i,j as o,i as t}from"./index-9f8c40cf.js";import{h as n}from"./home1x-0c9ce9af.js";const s="/nanny-services/assets/home2x-1ca38526.png",h=r.div`
   display: flex;
   width: 1376px;
   height: 736px;
