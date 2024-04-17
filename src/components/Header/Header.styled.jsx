@@ -11,9 +11,8 @@ export const Header = styled.header`
   padding: 20px 96px;
   border-bottom: 1px solid;
   border-color: ${(p) => p.theme.colors.borderColor};
-  /* background-color: ${(p) => p.theme.colors.green}; */
-  background-color: ${({ $variant }) => {
-    switch ($variant) {
+  background-color: ${({ $transparentBg }) => {
+    switch ($transparentBg) {
       case true:
         return "transparrent";
       default:
@@ -21,8 +20,8 @@ export const Header = styled.header`
     }
   }};
 
-  position: ${({ $variant }) => {
-    switch ($variant) {
+  position: ${({ $transparentBg }) => {
+    switch ($transparentBg) {
       case true:
         return "absolute";
       default:
@@ -72,7 +71,17 @@ export const Logo = styled(Link)`
 
 export const ButtonWrapper = styled.ul`
   display: flex;
-  gap: 8px;
+  /* gap: 8px; */
+  align-items: center;
+  justify-content: center;
+  gap: ${({ $isUserExist }) => {
+    switch ($isUserExist) {
+      case true:
+        return "24px";
+      default:
+        return "8px";
+    }
+  }};
 `;
 
 export const LogInButton = styled.button`
@@ -88,17 +97,57 @@ export const LogInButton = styled.button`
   color: ${(p) => p.theme.colors.white};
 `;
 
-export const RegistrationButton = styled(LogInButton)`
+export const RegistrationLogOutButton = styled(LogInButton)`
   padding: 14px 40px;
   background-color: ${(p) => p.theme.colors.green};
-  border: none;
+  border: 1px solid;
   transition:
     color 250ms ${(p) => p.theme.transition},
     background-color 250ms ${(p) => p.theme.transition};
+
+  border-color: ${({ $unvisibleBorder }) => {
+    switch ($unvisibleBorder) {
+      case true:
+        return "transparent";
+      default:
+        return (p) => p.theme.colors.borderColor;
+    }
+  }};
 
   &:hover,
   &:focus {
     color: ${(p) => p.theme.colors.green};
     background-color: ${(p) => p.theme.colors.white};
   }
+`;
+
+export const UserWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+`;
+
+export const UserAvatar = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: ${(p) => p.theme.colors.white};
+`;
+
+export const UserAvatarIcon = styled.svg`
+  width: 16px;
+  height: 16px;
+  fill: ${(p) => p.theme.colors.green};
+`;
+
+export const UserName = styled.p`
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.11;
+  letter-spacing: -0.01em;
+  color: ${(p) => p.theme.colors.white};
 `;

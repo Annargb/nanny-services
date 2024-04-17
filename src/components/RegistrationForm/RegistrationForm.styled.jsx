@@ -68,7 +68,7 @@ export const FormGroup = styled.label`
 
 export const ErrorMessage = styled(FormikError)`
   position: absolute;
-  top: 52px;
+  top: 54px;
   left: 8px;
   font-size: 12px;
   color: ${(p) => p.theme.colors.red};
