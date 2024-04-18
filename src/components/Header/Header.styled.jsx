@@ -14,7 +14,7 @@ export const Header = styled.header`
   background-color: ${({ $transparentBg }) => {
     switch ($transparentBg) {
       case true:
-        return "transparrent";
+        return "transparent";
       default:
         return (p) => p.theme.colors.green;
     }

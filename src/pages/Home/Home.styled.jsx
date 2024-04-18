@@ -60,7 +60,6 @@ export const ImgWrapper = styled.div`
   max-width: 699px;
   width: 100%;
   max-height: 736px;
-  height: 100vh;
   background-repeat: no-repeat;
   background-image: linear-gradient(
       ${(p) => p.theme.colors.gradientColor},

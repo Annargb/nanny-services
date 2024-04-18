@@ -6,6 +6,8 @@ const initialState = {
   userName: null,
   error: null,
   loading: false,
+  userData: [],
+  currentPage: 1,
 };
 
 const authSlice = createSlice({
