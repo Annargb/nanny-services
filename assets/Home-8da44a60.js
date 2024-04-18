@@ -1,14 +1,14 @@
-import{u as r,L as i,j as o,i as t}from"./index-9d6b6143.js";import{h as n}from"./home1x-0c9ce9af.js";const s="/nanny-services/assets/home2x-1ca38526.png",h=r.div`
+import{u as r,L as i,j as o,i as t}from"./index-a0c67e7e.js";import{h as n}from"./home1x-0c9ce9af.js";const s="/nanny-services/assets/home2x-1ca38526.png",p=r.div`
   display: flex;
   width: 1376px;
   height: 736px;
   border-radius: 30px;
   background-color: ${e=>e.theme.colors.green};
-`,p=r.div`
+`,c=r.div`
   width: 677px;
   height: 736px;
   padding: 251px 64px 0 96px;
-`,c=r.h1`
+`,h=r.h1`
   font-weight: 500;
   font-size: 70px;
   line-height: 1;
@@ -43,7 +43,6 @@ import{u as r,L as i,j as o,i as t}from"./index-9d6b6143.js";import{h as n}from"
   max-width: 699px;
   width: 100%;
   max-height: 736px;
-  height: 100vh;
   background-repeat: no-repeat;
   background-image: linear-gradient(
       ${e=>e.theme.colors.gradientColor},
@@ -84,4 +83,4 @@ import{u as r,L as i,j as o,i as t}from"./index-9d6b6143.js";import{h as n}from"
   font-weight: 700;
   font-size: 24px;
   color: ${e=>e.theme.colors.black};
-`,k=()=>o.jsxs(h,{children:[o.jsxs(p,{children:[o.jsx(c,{children:"Make Life Easier for the Family:"}),o.jsx(x,{children:"Find Babysitters Online for All Occasions"}),o.jsxs(a,{to:"/nannies",children:["Get started",o.jsx(d,{children:o.jsx("use",{href:`${t}#arrow-up`})})]})]}),o.jsx(l,{children:o.jsxs(g,{children:[o.jsx(m,{children:o.jsx(f,{children:o.jsx("use",{href:`${t}#check`})})}),o.jsxs("div",{children:[o.jsx(u,{children:"Experienced nannies"}),o.jsx(b,{children:"15,000"})]})]})})]});export{k as default};
+`,k=()=>o.jsxs(p,{children:[o.jsxs(c,{children:[o.jsx(h,{children:"Make Life Easier for the Family:"}),o.jsx(x,{children:"Find Babysitters Online for All Occasions"}),o.jsxs(a,{to:"/nannies",children:["Get started",o.jsx(d,{children:o.jsx("use",{href:`${t}#arrow-up`})})]})]}),o.jsx(l,{children:o.jsxs(g,{children:[o.jsx(m,{children:o.jsx(f,{children:o.jsx("use",{href:`${t}#check`})})}),o.jsxs("div",{children:[o.jsx(u,{children:"Experienced nannies"}),o.jsx(b,{children:"15,000"})]})]})})]});export{k as default};
