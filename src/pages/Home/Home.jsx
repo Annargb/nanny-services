@@ -12,6 +12,9 @@ const Home = () => {
           <n.ArrowUp>
             <use href={`${icons}#arrow-up`} />
           </n.ArrowUp>
+          <n.ArrowRight>
+            <use href={`${icons}#arrow-right`} />
+          </n.ArrowRight>
         </n.RedirectLink>
       </n.TextWrapper>
       <n.ImgWrapper>

@@ -1,11 +1,25 @@
 import { useState } from "react";
 import icons from "../../images/icons.svg";
-import { getAge } from "../../operations/operations";
 import { Rewiews } from "../Rewiews/Rewiews";
 import * as n from "./NannyCard.styled";
+import { NannyDetails } from "../NannyDetails/NannyDetails";
+import { CommonModal } from "../Modal/Modal";
+import { AppointmentForm } from "../AppointmentForm/AppointmentForm";
 
 export const NannyCard = ({ nanny }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [showReviews, setShowReviews] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    document.body.style.overflow = "";
+  };
 
   const handleReadMoreClick = () => {
     setShowReviews(true);
@@ -43,73 +57,42 @@ export const NannyCard = ({ nanny }) => {
                 </n.Text>
               </n.TextWrapper>
             </n.LocationRaitingWrapper>
-            <n.HeartButton type="button">
-              <n.IconHeart>
-                <use href={`${icons}#heart`} />
-              </n.IconHeart>
+            <n.HeartButton
+              type="button"
+              onClick={() => setIsFavorite(!isFavorite)}
+            >
+              {isFavorite ? (
+                <n.PressedHeart>
+                  <use href={`${icons}#full-heart`} />
+                </n.PressedHeart>
+              ) : (
+                <n.IconHeart>
+                  <use href={`${icons}#heart`} />
+                </n.IconHeart>
+              )}
             </n.HeartButton>
           </n.TitleButtonWrapper>
         </n.TopWrapper>
         <n.Name>{nanny.name}</n.Name>
-        <n.List>
-          <n.ListItem>
-            <n.ListTitle>
-              Age:{" "}
-              <n.ListSubText
-                style={{
-                  textDecoration: "underline",
-                  textDecorationSkipInk: "none",
-                }}
-              >
-                {getAge(nanny.birthday)}
-              </n.ListSubText>
-            </n.ListTitle>
-          </n.ListItem>
-          <n.ListItem>
-            <n.ListTitle>
-              Experience: <n.ListSubText>{nanny.experience}</n.ListSubText>
-            </n.ListTitle>
-          </n.ListItem>
-          <n.ListItem>
-            <n.ListTitle>
-              Kids Age: <n.ListSubText>{nanny.kids_age}</n.ListSubText>
-            </n.ListTitle>
-          </n.ListItem>
-          <n.ListItem>
-            <n.ListTitle>
-              Characters:{" "}
-              <n.ListSubText>
-                {nanny.characters
-                  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-                  .join(", ")}
-              </n.ListSubText>
-            </n.ListTitle>
-          </n.ListItem>
-          <n.ListItem>
-            <n.ListTitle>
-              Education: <n.ListSubText>{nanny.education}</n.ListSubText>
-            </n.ListTitle>
-          </n.ListItem>
-        </n.List>
+        <NannyDetails nanny={nanny} />
         <n.About $biggerMargin={showReviews}>{nanny.about}</n.About>
         {!showReviews && (
-          <n.ReadMore
-            type="button"
-            onClick={handleReadMoreClick}
-            //   disabled={showReviews}
-          >
+          <n.ReadMore type="button" onClick={handleReadMoreClick}>
             Read more
           </n.ReadMore>
         )}
         {showReviews && (
           <>
             <Rewiews reviews={nanny.reviews} />
-            <n.AppointmentButton type="button">
+            <n.AppointmentButton type="button" onClick={() => openModal()}>
               Make an appointment
             </n.AppointmentButton>
           </>
         )}
       </div>
+      <CommonModal isModalOpen={isModalOpen} closeModal={closeModal}>
+        <AppointmentForm nanny={nanny} />
+      </CommonModal>
     </n.CardWrapper>
   );
 };

@@ -62,6 +62,7 @@ export const TopWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 992px;
+  margin-bottom: 8px;
 `;
 
 export const NannyTitle = styled.h3`
@@ -74,15 +75,12 @@ export const NannyTitle = styled.h3`
 export const LocationRaitingWrapper = styled.ul`
   display: flex;
   gap: 16px;
-  /* flex-shrink: 0; */
-  /* margin: 0 48px 8px 0; */
-  margin-bottom: 8px;
-  /* margin-right: 48px; */
 `;
 
 export const TitleButtonWrapper = styled.div`
   display: flex;
   gap: 48px;
+  align-items: center;
 `;
 
 export const IconMap = styled.svg`
@@ -115,7 +113,8 @@ export const TextWrapper = styled.li`
   /* border-right: 1px solid ${(p) => p.theme.colors.textBorder}; */
 `;
 
-export const TextDelimiter = styled.div`
+export const TextDelimiter = styled.span`
+  display: inline-block;
   flex-shrink: 0;
   width: 2px;
   height: 16px;
@@ -147,29 +146,6 @@ export const Name = styled.h2`
   margin-bottom: 24px;
   color: ${(p) => p.theme.colors.black};
 `;
-export const List = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 24px;
-`;
-
-export const ListItem = styled.li`
-  border-radius: 24px;
-  padding: 8px 16px;
-  background-color: ${(p) => p.theme.colors.grayBackgraund};
-`;
-
-export const ListTitle = styled.p`
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  color: ${(p) => p.theme.colors.textGray};
-`;
-
-export const ListSubText = styled.span`
-  color: ${(p) => p.theme.colors.black};
-`;
 
 export const About = styled.p`
   font-weight: 400;
@@ -185,7 +161,6 @@ export const About = styled.p`
         return "14px";
     }
   }};
-  /* margin-bottom: 14px; */
 `;
 
 export const ReadMore = styled.button`
@@ -208,6 +183,17 @@ export const HeartButton = styled.button`
 export const IconHeart = styled.svg`
   width: 26px;
   height: 22px;
+  fill: ${(p) => p.theme.colors.black};
+  transition: fill 250ms ${(p) => p.theme.transition};
+
+  &:hover,
+  &:focus {
+    fill: ${(p) => p.theme.colors.green};
+  }
+`;
+
+export const PressedHeart = styled(IconHeart)`
+  fill: ${(p) => p.theme.colors.green};
 `;
 
 export const AppointmentButton = styled.button`

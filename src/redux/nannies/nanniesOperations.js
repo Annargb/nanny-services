@@ -31,7 +31,6 @@ export const fetchUserData = createAsyncThunk(
         data.push(childSnapshot.val());
       });
 
-      //   console.log(data);
       return data;
     } catch (error) {
       toast.error("Error fetching user data");

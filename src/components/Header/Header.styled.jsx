@@ -71,7 +71,6 @@ export const Logo = styled(Link)`
 
 export const ButtonWrapper = styled.ul`
   display: flex;
-  /* gap: 8px; */
   align-items: center;
   justify-content: center;
   gap: ${({ $isUserExist }) => {
@@ -85,7 +84,9 @@ export const ButtonWrapper = styled.ul`
 `;
 
 export const LogInButton = styled.button`
-  padding: 14px 39px;
+  width: 124px;
+  height: 48px;
+  padding: 14px 38px;
   background-color: transparent;
   border: 1px solid;
   border-color: ${(p) => p.theme.colors.borderColor};
@@ -95,10 +96,19 @@ export const LogInButton = styled.button`
   line-height: 1.25;
   letter-spacing: -0.01em;
   color: ${(p) => p.theme.colors.white};
+  transition:
+    color 250ms ${(p) => p.theme.transition},
+    background-color 250ms ${(p) => p.theme.transition};
+
+  &:hover,
+  &:focus {
+    color: ${(p) => p.theme.colors.green};
+    background-color: ${(p) => p.theme.colors.white};
+  }
 `;
 
 export const RegistrationLogOutButton = styled(LogInButton)`
-  padding: 14px 40px;
+  width: 168px;
   background-color: ${(p) => p.theme.colors.green};
   border: 1px solid;
   transition:

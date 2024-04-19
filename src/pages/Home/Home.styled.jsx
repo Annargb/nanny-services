@@ -35,9 +35,29 @@ export const Text = styled.p`
   margin-bottom: 64px;
 `;
 
+export const ArrowUp = styled.svg`
+  position: absolute;
+  top: 22px;
+  right: 45px;
+  width: 15px;
+  height: 17px;
+
+  transition: transform 250ms ${(p) => p.theme.transition};
+`;
+
+export const ArrowRight = styled(ArrowUp)`
+  width: 20px;
+  height: 16px;
+  right: 40px;
+  transform: translateX(calc(50% + 50px));
+`;
+
 export const RedirectLink = styled(Link)`
+  position: relative;
   display: inline-block;
+  width: 230px;
   padding: 18px 50px;
+  overflow: hidden;
   background-color: transparent;
   border: 1px solid;
   border-color: ${(p) => p.theme.colors.borderColor};
@@ -47,12 +67,14 @@ export const RedirectLink = styled(Link)`
   line-height: 1.2;
   letter-spacing: -0.01em;
   color: ${(p) => p.theme.colors.white};
-`;
 
-export const ArrowUp = styled.svg`
-  width: 15px;
-  height: 17px;
-  margin-left: 18px;
+  &:hover ${ArrowUp}, &:focus ${ArrowUp} {
+    transform: translateY(-55px);
+  }
+
+  &:hover ${ArrowRight}, &:focus ${ArrowRight} {
+    transform: translateX(calc(-50% + 10px));
+  }
 `;
 
 export const ImgWrapper = styled.div`
