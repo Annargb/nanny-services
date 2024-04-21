@@ -1,1 +1,0 @@
-import{d as e,r,h as i,j as s,i as a}from"./index-31d67081.js";const c=()=>{const t=e();return r.useEffect(()=>{t(i())},[t]),s.jsxs("div",{children:[s.jsx("h1",{children:"Favorites"}),s.jsx("svg",{children:s.jsx("use",{href:`${a}#icon-heart`,style:{width:"30px",height:"30px"}})})]})};export{c as default};
