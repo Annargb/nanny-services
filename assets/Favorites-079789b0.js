@@ -1,1 +1,0 @@
-import{j as s,i as e}from"./index-fef374f5.js";import{h as t}from"./home1x-0c9ce9af.js";const h=()=>s.jsxs("div",{children:[s.jsx("h1",{children:"Favorites"}),s.jsx("svg",{children:s.jsx("use",{href:`${e}#icon-heart`,style:{width:"30px",height:"30px"}})}),s.jsx("img",{src:t,alt:"home",style:{width:"300px",height:"150px"}})]});export{h as default};
