@@ -53,9 +53,9 @@ export const Header = () => {
       <n.LinkButtonWrapper>
         <n.NavWrapper>
           <n.HeaderLink to="/">Home</n.HeaderLink>
-          <n.HeaderLink to="/nannies">Nannies</n.HeaderLink>
+          <n.HeaderActiveLink to="/nannies">Nannies</n.HeaderActiveLink>
           {currentUserName && (
-            <n.HeaderLink to="/favorites">Favorites</n.HeaderLink>
+            <n.HeaderActiveLink to="/favorites">Favorites</n.HeaderActiveLink>
           )}
         </n.NavWrapper>
         <n.ButtonWrapper $isUserExist={currentUserName !== null}>

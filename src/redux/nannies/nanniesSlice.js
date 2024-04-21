@@ -31,7 +31,6 @@ const nanniesSlice = createSlice({
         if (!fetchedArr) {
           state.nannyList.push(...action.payload);
         }
-        // console.log(action.payload);
         state.error = null;
       })
       .addCase(fetchUserData.rejected, (state, action) => {

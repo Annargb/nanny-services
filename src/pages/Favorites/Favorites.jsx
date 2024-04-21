@@ -1,7 +1,15 @@
 import icons from "../../images/icons.svg";
-import home from "../../images/home1x.png";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { fetchFavorites } from "../../redux/favorites/favoritesOperations";
 
 const Favorites = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchFavorites());
+  }, [dispatch]);
+
   return (
     <div>
       <h1>Favorites</h1>
@@ -12,7 +20,6 @@ const Favorites = () => {
           style={{ width: "30px", height: "30px" }}
         />
       </svg>
-      <img src={home} alt="home" style={{ width: "300px", height: "150px" }} />
     </div>
   );
 };

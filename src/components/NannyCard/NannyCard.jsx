@@ -3,13 +3,18 @@ import icons from "../../images/icons.svg";
 import { Rewiews } from "../Rewiews/Rewiews";
 import * as n from "./NannyCard.styled";
 import { NannyDetails } from "../NannyDetails/NannyDetails";
-import { CommonModal } from "../Modal/Modal";
+// import { CommonModal } from "../Modal/Modal";
 import { AppointmentForm } from "../AppointmentForm/AppointmentForm";
+import { useDispatch } from "react-redux";
+import { toggleFavorites } from "../../redux/favorites/favoritesOperations";
+import { AppointmentModal } from "../AppointmentModal/AppointmentModal";
 
 export const NannyCard = ({ nanny }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showReviews, setShowReviews] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
+
+  const dispatch = useDispatch();
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -23,6 +28,11 @@ export const NannyCard = ({ nanny }) => {
 
   const handleReadMoreClick = () => {
     setShowReviews(true);
+  };
+
+  const handleFavoriteClick = async () => {
+    setIsFavorite(!isFavorite);
+    await dispatch(toggleFavorites(nanny));
   };
 
   return (
@@ -59,7 +69,8 @@ export const NannyCard = ({ nanny }) => {
             </n.LocationRaitingWrapper>
             <n.HeartButton
               type="button"
-              onClick={() => setIsFavorite(!isFavorite)}
+              // onClick={() => setIsFavorite(!isFavorite)}
+              onClick={handleFavoriteClick}
             >
               {isFavorite ? (
                 <n.PressedHeart>
@@ -90,9 +101,12 @@ export const NannyCard = ({ nanny }) => {
           </>
         )}
       </div>
-      <CommonModal isModalOpen={isModalOpen} closeModal={closeModal}>
+      <AppointmentModal isModalOpen={isModalOpen} closeModal={closeModal}>
         <AppointmentForm nanny={nanny} />
-      </CommonModal>
+      </AppointmentModal>
+      {/* <CommonModal isModalOpen={isModalOpen} closeModal={closeModal}>
+        <AppointmentForm nanny={nanny} />
+      </CommonModal> */}
     </n.CardWrapper>
   );
 };

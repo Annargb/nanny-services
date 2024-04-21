@@ -43,22 +43,30 @@ export const NavWrapper = styled.nav`
 `;
 
 export const HeaderLink = styled(NavLink)`
+  position: relative;
+  margin-bottom: 4px;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.25;
   letter-spacing: -0.01em;
   color: ${(p) => p.theme.colors.white};
+`;
 
-  /* &:active::after {
+export const HeaderActiveLink = styled(HeaderLink)`
+  &.active::after {
     content: "";
+    position: absolute;
     display: block;
     width: 8px;
     height: 8px;
+    bottom: -12px;
+    right: 50%;
+    transform: translateX(50%);
     border-radius: 50%;
     background-color: #fff;
     margin: 0 auto;
     margin-top: 4px;
-  } */
+  }
 `;
 
 export const Logo = styled(Link)`

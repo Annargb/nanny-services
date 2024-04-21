@@ -2,32 +2,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Formik } from "formik";
-import * as Yup from "yup";
+import { registerUser } from "../../redux/auth/authOperations";
+import { registerSchema } from "../../schemas/schemas";
 import icons from "../../images/icons.svg";
 import * as n from "./RegistrationForm.styled";
-import { registerUser } from "../../redux/auth/authOperations";
-
-const emailPattern = /^[a-z0-9._%+-]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+$/;
-
-const validationSchema = Yup.object().shape({
-  name: Yup.string()
-    .trim()
-    .min(2, "Name must contain at least 2 characters")
-    .max(40, "Too long name")
-    .required("Name is required"),
-  email: Yup.string()
-    .trim()
-    .matches(
-      emailPattern,
-      "Please enter a valid email! For example jane@mail.com"
-    )
-    .required("Email is required"),
-  password: Yup.string()
-    .trim()
-    .min(8, "Password must contain at least 8 characters")
-    .max(40, "Too long password")
-    .required("Password is required!"),
-});
 
 export const RegistrationForm = ({ closeModal }) => {
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
@@ -63,7 +41,8 @@ export const RegistrationForm = ({ closeModal }) => {
         email: "",
         password: "",
       }}
-      validationSchema={validationSchema}
+      // validationSchema={validationSchema}
+      validationSchema={registerSchema}
       onSubmit={handleSubmit}
     >
       <n.Form>

@@ -1,5 +1,5 @@
 import Modal from "react-modal";
-import * as n from "./Modal.styled";
+import * as n from "./AppointmentModal.styled";
 import icons from "../../images/icons.svg";
 
 const customStyles = {
@@ -11,15 +11,11 @@ const customStyles = {
     left: "50%",
     right: "auto",
     bottom: "auto",
-    // zIndex: "999999",
-    width: "566px",
-    // maxWidth: "600px",
-    minHeight: "490px",
-    // maxHeight: "720px",
-    // maxHeight: "908px",
-    maxHeight: "580px",
+    maxWidth: "600px",
+    maxHeight: "720px",
+    // maxHeight: "580px",
     overflow: "hidden",
-    padding: "64px",
+    padding: "64px 32px 64px 64px",
     borderRadius: "30px",
     marginRight: "-50%",
     paddingLeft: "-5px",
@@ -30,7 +26,7 @@ const customStyles = {
 
 Modal.setAppElement("#modal");
 
-export const CommonModal = ({ children, isModalOpen, closeModal }) => {
+export const AppointmentModal = ({ children, isModalOpen, closeModal }) => {
   return (
     <Modal
       isOpen={isModalOpen}

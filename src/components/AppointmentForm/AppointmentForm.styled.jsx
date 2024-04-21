@@ -1,9 +1,20 @@
 import styled from "styled-components";
 import {
-  //   Form as FormikForm,
+  Form as FormikForm,
   Field as FormikField,
   ErrorMessage as FormikError,
 } from "formik";
+
+export const TopContainer = styled.div`
+  padding-right: 32px;
+`;
+
+export const Form = styled(FormikForm)`
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+`;
 
 export const FormTitle = styled.h2`
   font-weight: 500;
@@ -52,13 +63,12 @@ export const FormWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 16px 8px;
-  margin-bottom: 40px;
 `;
 
 export const SendButton = styled.button`
   border-radius: 30px;
   padding: 16px 217px;
-  width: 472px;
+  width: 470px;
   height: 52px;
   border: 1px solid ${(p) => p.theme.colors.green};
   background-color: ${(p) => p.theme.colors.green};
@@ -78,18 +88,9 @@ export const SendButton = styled.button`
   }
 `;
 
-export const ErrorMessage = styled(FormikError)`
-  position: absolute;
-  top: 54px;
-  left: 8px;
-  font-size: 12px;
-  color: ${(p) => p.theme.colors.red};
-`;
-
 export const Label = styled.label`
   position: relative;
-  width: 230px;
-  height: 52px;
+  width: 231px;
 `;
 
 export const LongLabel = styled(Label)`
@@ -97,7 +98,7 @@ export const LongLabel = styled(Label)`
 `;
 
 export const Field = styled(FormikField)`
-  width: 230px;
+  width: 231px;
   height: 52px;
   padding: 16px 18px;
   font-size: inherit;
@@ -131,4 +132,34 @@ export const TextArea = styled(Field)`
   width: 470px;
   height: 116px;
   resize: none;
+`;
+
+export const ErrorMessage = styled(FormikError)`
+  position: absolute;
+  top: 54px;
+  left: 8px;
+  font-size: 12px;
+  color: ${(p) => p.theme.colors.red};
+`;
+
+export const OverflowScrollbarWrapper = styled.div`
+  overflow-y: auto;
+  height: 310px;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 160px;
+  }
+
+  &::-webkit-scrollbar-track {
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: ${(p) => p.theme.colors.textGrayColor};
+    border-radius: 7px;
+  }
+`;
+
+export const OverflowContainer = styled.div`
+  padding-right: 24px;
 `;
