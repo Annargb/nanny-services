@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import Select from "react-select";
 
-export const Select = styled.select`
+export const StyledSelect = styled(Select)`
   margin-bottom: 32px;
 `;
 

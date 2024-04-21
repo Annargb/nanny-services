@@ -44,7 +44,7 @@ export const NavWrapper = styled.nav`
 
 export const HeaderLink = styled(NavLink)`
   position: relative;
-  margin-bottom: 4px;
+  padding-bottom: 10px;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.25;
@@ -59,13 +59,12 @@ export const HeaderActiveLink = styled(HeaderLink)`
     display: block;
     width: 8px;
     height: 8px;
-    bottom: -12px;
+    bottom: -8px;
     right: 50%;
     transform: translateX(50%);
     border-radius: 50%;
     background-color: #fff;
     margin: 0 auto;
-    margin-top: 4px;
   }
 `;
 

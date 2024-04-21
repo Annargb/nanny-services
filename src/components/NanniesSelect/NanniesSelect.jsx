@@ -1,23 +1,29 @@
+import { customStyles } from "../../styles/selectStyles";
 import * as n from "./NanniesSelect.styled";
 
 export const NanniesSelect = () => {
-  const handleOptionChange = (event) => {
-    const selectedOption = event.target.value;
-    console.log(`Вибрана опція: ${selectedOption}`);
+  const options = [
+    { value: "az", label: "A to Z" },
+    { value: "za", label: "Z to A" },
+    { value: "less", label: "Less than 10$" },
+    { value: "greater", label: "Greater than 10$" },
+    { value: "popular", label: "Popular" },
+    { value: "notPopular", label: "Not popular" },
+    { value: "all", label: "Show all" },
+  ];
+
+  const handleOptionChange = (selectedOption) => {
+    console.log(`Вибрана опція: ${selectedOption.value}`);
   };
 
   return (
     <>
       <n.Filters>Filters</n.Filters>
-      <n.Select onChange={handleOptionChange}>
-        <option value="az">A to Z</option>
-        <option value="za">Z to A</option>
-        <option value="less">Less than 10$</option>
-        <option value="greater">Greater than 10$</option>
-        <option value="popular">Popular</option>
-        <option value="notPopular">Not popular</option>
-        <option value="all">Show all</option>
-      </n.Select>
+      <n.StyledSelect
+        options={options}
+        onChange={handleOptionChange}
+        styles={customStyles}
+      />
     </>
   );
 };
