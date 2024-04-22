@@ -1,7 +1,10 @@
+import { useDispatch } from "react-redux";
 import { customStyles } from "../../styles/selectStyles";
 import * as n from "./NanniesSelect.styled";
+import { fetchFilteredData } from "../../redux/nannies/nanniesOperations";
 
 export const NanniesSelect = () => {
+  const dispatch = useDispatch();
   const options = [
     { value: "az", label: "A to Z" },
     { value: "za", label: "Z to A" },
@@ -14,6 +17,7 @@ export const NanniesSelect = () => {
 
   const handleOptionChange = (selectedOption) => {
     console.log(`Вибрана опція: ${selectedOption.value}`);
+    dispatch(fetchFilteredData(selectedOption.value));
   };
 
   return (

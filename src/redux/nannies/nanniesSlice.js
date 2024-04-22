@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchUserData } from "./nanniesOperations";
+import { fetchFilteredData, fetchUserData } from "./nanniesOperations";
 
 const initialState = {
   error: null,
   loading: false,
   nannyList: [],
   currentPage: 1,
+  isVisibleButton: true,
 };
 
 const nanniesSlice = createSlice({
@@ -34,6 +35,20 @@ const nanniesSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchUserData.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+      .addCase(fetchFilteredData.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchFilteredData.fulfilled, (state, action) => {
+        state.loading = false;
+        state.isVisibleButton = false;
+        state.nannyList = action.payload;
+        state.error = null;
+      })
+      .addCase(fetchFilteredData.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       });

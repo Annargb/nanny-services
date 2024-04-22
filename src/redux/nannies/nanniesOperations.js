@@ -8,12 +8,13 @@ import {
   get,
   startAt,
   orderByChild,
+  endAt,
 } from "firebase/database";
 
 import toast from "react-hot-toast";
 
 export const fetchUserData = createAsyncThunk(
-  "auth/fetchUserData",
+  "nanny/fetchUserData",
   async (page, thunkAPI) => {
     try {
       const database = getDatabase();
@@ -41,7 +42,7 @@ export const fetchUserData = createAsyncThunk(
 );
 
 export const fetchFilteredData = createAsyncThunk(
-  "auth/fetchUserData",
+  "nanny/fetchFilteredData",
   async (option, thunkAPI) => {
     // Змінено аргумент на опцію
     try {
@@ -53,23 +54,25 @@ export const fetchFilteredData = createAsyncThunk(
       switch (option) {
         case "az":
           dbQuery = query(dbRef, orderByChild("name"));
+          console.log(dbQuery);
           break;
         case "za":
-          dbQuery = query(dbRef, orderByChild("name"));
+          dbQuery = query(dbRef, orderByChild("name"), endAt("A"));
           break;
         default:
-          // За замовчуванням, якщо опція не визначена, використовуйте стандартний запит
+          // За замовчуванням, якщо опція не визначена, використовуйте стандартний запит all
           dbQuery = query(dbRef, orderByKey());
           break;
       }
 
       const snapshot = await get(dbQuery);
+      console.log(snapshot);
 
       let data = [];
       snapshot.forEach((childSnapshot) => {
         data.push(childSnapshot.val());
       });
-
+      console.log(data);
       return data;
     } catch (error) {
       toast.error("Error fetching data");

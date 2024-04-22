@@ -59,7 +59,7 @@ export const HeaderActiveLink = styled(HeaderLink)`
     display: block;
     width: 8px;
     height: 8px;
-    bottom: -8px;
+    bottom: -4px;
     right: 50%;
     transform: translateX(50%);
     border-radius: 50%;
