@@ -13,7 +13,18 @@ const SharedLayout = () => {
           <Outlet />
         </Suspense>
       </main>
-      <Toaster position="top-right" reverseOrder={false} />
+      <Toaster
+        position="top-right"
+        reverseOrder={false}
+        toastOptions={{
+          success: {
+            iconTheme: {
+              primary: "#103931",
+              secondary: "#fff",
+            },
+          },
+        }}
+      />
     </Container>
   );
 };

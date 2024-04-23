@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { lazy } from "react";
-import SharedLayout from "./components/SharedLayout/SharedLayout";
 import { PrivateRoute } from "./components/PrivateRoute/PrivateRoute";
+import SharedLayout from "./components/SharedLayout/SharedLayout";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const Nannies = lazy(() => import("./pages/Nannies/Nannies"));
@@ -18,7 +18,6 @@ function App() {
             path="favorites"
             element={<PrivateRoute redirectTo="/" component={<Favorites />} />}
           />
-          {/* <Route path="favorites" element={<Favorites />} /> */}
           <Route path="*" element={<Home />} />
         </Route>
       </Routes>

@@ -1,13 +1,14 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import icons from "../../images/icons.svg";
 import { Rewiews } from "../Rewiews/Rewiews";
 import * as n from "./NannyCard.styled";
 import { NannyDetails } from "../NannyDetails/NannyDetails";
-// import { CommonModal } from "../Modal/Modal";
+import { CommonModal } from "../Modal/Modal";
 import { AppointmentForm } from "../AppointmentForm/AppointmentForm";
-import { useDispatch } from "react-redux";
+
 import { toggleFavorites } from "../../redux/favorites/favoritesOperations";
-import { AppointmentModal } from "../AppointmentModal/AppointmentModal";
+import { appointmentStyles } from "../../styles/modalStyles";
 
 export const NannyCard = ({ nanny }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -101,12 +102,13 @@ export const NannyCard = ({ nanny }) => {
           </>
         )}
       </div>
-      <AppointmentModal isModalOpen={isModalOpen} closeModal={closeModal}>
+      <CommonModal
+        isModalOpen={isModalOpen}
+        closeModal={closeModal}
+        styles={appointmentStyles}
+      >
         <AppointmentForm nanny={nanny} />
-      </AppointmentModal>
-      {/* <CommonModal isModalOpen={isModalOpen} closeModal={closeModal}>
-        <AppointmentForm nanny={nanny} />
-      </CommonModal> */}
+      </CommonModal>
     </n.CardWrapper>
   );
 };

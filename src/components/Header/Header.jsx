@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { CommonModal } from "../Modal/Modal";
-import * as n from "./Header.styled";
-import { RegistrationForm } from "../RegistrationForm/RegistrationForm";
-import { LoginForm } from "../LoginForm/LoginForm";
 import { useDispatch, useSelector } from "react-redux";
 import { selectUserName } from "../../redux/auth/selectors";
-import icons from "../../images/icons.svg";
 import { logOut } from "../../redux/auth/authOperations";
+import { CommonModal } from "../Modal/Modal";
+import { RegistrationForm } from "../RegistrationForm/RegistrationForm";
+import { LoginForm } from "../LoginForm/LoginForm";
+import icons from "../../images/icons.svg";
+import { authModalStyles } from "../../styles/modalStyles";
+import * as n from "./Header.styled";
 
 export const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -49,7 +50,7 @@ export const Header = () => {
 
   return (
     <n.Header $transparentBg={isHomePage}>
-      <n.Logo>Nanny.Services</n.Logo>
+      <n.Logo to="/">Nanny.Services</n.Logo>
       <n.LinkButtonWrapper>
         <n.NavWrapper>
           <n.HeaderLink to="/">Home</n.HeaderLink>
@@ -96,7 +97,11 @@ export const Header = () => {
           </li>
         </n.ButtonWrapper>
       </n.LinkButtonWrapper>
-      <CommonModal isModalOpen={isModalOpen} closeModal={closeModal}>
+      <CommonModal
+        isModalOpen={isModalOpen}
+        closeModal={closeModal}
+        styles={authModalStyles}
+      >
         {modalForm === "register" && (
           <RegistrationForm closeModal={closeModal} />
         )}

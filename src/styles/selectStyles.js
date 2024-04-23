@@ -1,5 +1,4 @@
 export const customStyles = {
-  // опции
   option: (baseStyles, { isFocused, isSelected }) => {
     return {
       ...baseStyles,
@@ -12,7 +11,6 @@ export const customStyles = {
     };
   },
 
-  // поле input
   control: (baseStyles) => {
     return {
       ...baseStyles,
@@ -33,7 +31,6 @@ export const customStyles = {
     };
   },
 
-  //стрелка вниз
   dropdownIndicator: (baseStyles) => ({
     ...baseStyles,
     display: "flex",
@@ -56,7 +53,6 @@ export const customStyles = {
     padding: "14px 0 14px 18px",
   }),
 
-  //выпадающее меню
   menu: (baseStyles) => {
     return {
       ...baseStyles,
@@ -70,7 +66,6 @@ export const customStyles = {
     };
   },
 
-  //список выпадающего меню (длина выпадайки)
   menuList: (baseStyles) => {
     return {
       ...baseStyles,
@@ -85,7 +80,6 @@ export const customStyles = {
     };
   },
 
-  //разделитель в инпуте поля ввода и кнопки стрелка вниз
   indicatorSeparator: (baseStyles) => {
     return {
       ...baseStyles,
@@ -105,7 +99,6 @@ export const customStyles = {
     };
   },
 
-  // тоже поле input
   container: (baseStyles) => {
     return {
       ...baseStyles,
@@ -116,7 +109,6 @@ export const customStyles = {
     };
   },
 
-  //тоже поле input
   input: (baseStyles) => {
     return {
       ...baseStyles,

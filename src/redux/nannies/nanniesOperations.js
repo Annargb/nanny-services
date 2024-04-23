@@ -44,35 +44,51 @@ export const fetchUserData = createAsyncThunk(
 export const fetchFilteredData = createAsyncThunk(
   "nanny/fetchFilteredData",
   async (option, thunkAPI) => {
-    // Змінено аргумент на опцію
     try {
       const database = getDatabase();
       const dbRef = ref(database);
       let dbQuery;
 
-      // Відповідно до опції створюємо відповідний запит до Firebase
       switch (option) {
         case "az":
           dbQuery = query(dbRef, orderByChild("name"));
           console.log(dbQuery);
           break;
         case "za":
-          dbQuery = query(dbRef, orderByChild("name"), endAt("A"));
+          dbQuery = query(dbRef, orderByChild("name"));
           break;
-        default:
-          // За замовчуванням, якщо опція не визначена, використовуйте стандартний запит all
+        case "less":
+          dbQuery = query(dbRef, orderByChild("price_per_hour"), endAt(10));
+          break;
+        case "greater":
+          dbQuery = query(dbRef, orderByChild("price_per_hour"), startAt(10));
+          break;
+        case "popular":
+          dbQuery = query(dbRef, orderByChild("rating"));
+          break;
+        case "notPopular":
+          dbQuery = query(dbRef, orderByChild("rating"));
+          break;
+        case "all":
           dbQuery = query(dbRef, orderByKey());
           break;
       }
 
       const snapshot = await get(dbQuery);
-      console.log(snapshot);
-
       let data = [];
       snapshot.forEach((childSnapshot) => {
         data.push(childSnapshot.val());
       });
-      console.log(data);
+
+      switch (option) {
+        case "za":
+          data.sort((a, b) => (a.name < b.name ? 1 : -1));
+          break;
+        case "popular":
+          data.sort((a, b) => b.rating - a.rating);
+          break;
+      }
+
       return data;
     } catch (error) {
       toast.error("Error fetching data");
@@ -80,30 +96,3 @@ export const fetchFilteredData = createAsyncThunk(
     }
   }
 );
-
-// export const fetchUserData = createAsyncThunk(
-//   "auth/fetchUserData",
-//   async (_, { rejectWithValue }) => {
-//     try {
-//       const database = getDatabase();
-//       const dbRef = ref(database);
-//       const dbQuery = query(dbRef, orderByKey(), limitToFirst(3));
-
-//       let data;
-
-//       const snapshot = await get(dbQuery);
-
-//       if (snapshot.exists()) {
-//         data = snapshot.val();
-//       } else {
-//         console.log("No data available");
-//       }
-
-//       console.log(data);
-//       return data;
-//     } catch (error) {
-//       toast.error("Error fetching user data");
-//       return rejectWithValue(error.message);
-//     }
-//   }
-// );

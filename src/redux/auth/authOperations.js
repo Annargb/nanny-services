@@ -18,16 +18,16 @@ export const registerUser = createAsyncThunk(
         password
       );
       await updateProfile(userCredential.user, { displayName });
-      toast.success("Success register");
+      toast.success("Registration was successful");
       return {
         userId: userCredential.user.uid,
         userName: userCredential.user.displayName,
       };
     } catch (error) {
       if (error.message === "Firebase: Error (auth/email-already-in-use).") {
-        toast.error("This user are already exist");
+        toast.error("This email is already in use");
       } else {
-        toast.error("errror");
+        toast.error("Oops, something went wrong. Try again later");
       }
       return rejectWithValue(error.message);
     }
@@ -43,14 +43,14 @@ export const logInUser = createAsyncThunk(
         email,
         password
       );
-      toast.success("Log in successful");
+      toast.success("Login was successful");
       return {
         userId: userCredential.user.uid,
         userName: userCredential.user.displayName,
       };
     } catch (error) {
       if (error.message === "Firebase: Error (auth/invalid-credential).") {
-        toast.error("Email or password are wrong!");
+        toast.error("Incorrect email or password");
       } else {
         toast.error("errror");
       }
@@ -66,53 +66,8 @@ export const logOut = createAsyncThunk(
       await signOut(auth);
       toast.success("Log out successful");
     } catch (error) {
-      toast.error("errror");
+      toast.error("Oops, something went wrong. Try again later");
       return rejectWithValue(error.message);
     }
   }
 );
-
-// const loadNextData = (page, perPage, callback) => {
-//   const database = getDatabase();
-//   const dbRef = ref(database);
-//   const dbQuery = query(dbRef, orderByKey(), limitToFirst(perPage * page));
-
-//   // Слухаємо зміни за певним запитом
-//   const unsubscribe = onValue(dbQuery, (snapshot) => {
-//     const data = snapshot.val();
-//     callback(data);
-
-//     // Відключаємо слухач після отримання даних
-//     off(dbQuery, "value", unsubscribe);
-//   });
-// };
-
-// export const fetchUserData = createAsyncThunk(
-//   "auth/fetchUserData",
-//   async (_, { rejectWithValue }) => {
-//     try {
-//       // Завантажуємо наступну порцію даних з бази даних
-//       await loadNextData(1, 3, (data) => {
-//         // Повертаємо дані користувача
-//         console.log(data);
-//         return data;
-//       });
-//     } catch (error) {
-//       toast.error("Error fetching user data");
-//       return rejectWithValue(error.message);
-//     }
-//   }
-// );
-
-// const loadNextData = (page, perPage, callback) => {
-//   const dbRef = ref(getDatabase());
-
-//   // Створюємо запит з пагінацією
-//   const query = ref.orderByKey().limitToFirst(perPage * page);
-
-//   // Слухаємо зміни за певним запитом
-//   onValue(query, (snapshot) => {
-//     const data = snapshot.val();
-//     callback(data);
-//   });
-// };
