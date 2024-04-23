@@ -17,7 +17,7 @@ export const authModalStyles = {
     marginRight: "-50%",
     paddingLeft: "-5px",
     transform: "translate(-50%, -50%)",
-    backgroundColor: "fbfbfb",
+    background: "#fbfbfb",
   },
 };
 
@@ -38,6 +38,6 @@ export const appointmentStyles = {
     marginRight: "-50%",
     paddingLeft: "-5px",
     transform: "translate(-50%, -50%)",
-    backgroundColor: "fbfbfb",
+    background: "#fbfbfb",
   },
 };

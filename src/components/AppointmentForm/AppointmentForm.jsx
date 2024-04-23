@@ -1,6 +1,7 @@
 import { Formik } from "formik";
 import { appointmentValidationSchema } from "../../schemas/schemas";
 import * as n from "./AppointmentForm.styled";
+import { CustomTimePicker } from "../CustomTimePicker/CustomTimePicker";
 
 export const AppointmentForm = ({ nanny }) => {
   return (
@@ -39,7 +40,8 @@ export const AppointmentForm = ({ nanny }) => {
               window.location.reload();
             }}
           >
-            {({ values, setFieldValue }) => (
+            {/* {({ values, setFieldValue }) => ( */}
+            {() => (
               <n.Form>
                 <n.FormWrapper>
                   <n.Label>
@@ -63,7 +65,7 @@ export const AppointmentForm = ({ nanny }) => {
                     />
                   </n.Label>
                   <n.Label>
-                    <n.Field
+                    {/* <n.Field
                       name="time"
                       type="time"
                       placeholder="00:00"
@@ -72,7 +74,8 @@ export const AppointmentForm = ({ nanny }) => {
                         const { value } = event.target;
                         setFieldValue("time", value);
                       }}
-                    />
+                    /> */}
+                    <CustomTimePicker name="time" />
                     <n.ErrorMessage name="time" component="span" required />
                   </n.Label>
                   <n.LongLabel>
