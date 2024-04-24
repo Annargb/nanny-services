@@ -14,7 +14,6 @@ export const theme = {
     textGrayColor: "rgba(17, 16, 28, 0.5)",
     gradientColor: "rgba(18, 20, 23, 0.6)",
     avatarBorder: "rgba(16, 57, 49, 0.2)",
-
     red: "#d80027",
 
     modalOverlay: "rgba(4, 4, 4, 0.4)",

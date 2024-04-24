@@ -1,9 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateCurrentPage } from "../../redux/nannies/nanniesSlice";
+// import { updateCurrentPage } from "../../redux/nannies/nanniesSlice";
 import { fetchUserData } from "../../redux/nannies/nanniesOperations";
 import {
-  selectCurrentPage,
+  // selectCurrentPage,
   selectNannyError,
   selectNannyList,
   selectNannyLoading,
@@ -13,34 +13,68 @@ import { NannyCard } from "../../components/NannyCard/NannyCard";
 import { NanniesSelect } from "../../components/NanniesSelect/NanniesSelect";
 import { NotFound } from "../../components/NotFound/NotFound";
 import * as n from "./Nannies.styled";
+import Loader from "../../components/Loader/Loader";
 
 const Nannies = () => {
-  const currentPage = useSelector(selectCurrentPage);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  // const currentPage = useSelector(selectCurrentPage);
   const isVisibleButton = useSelector(selectVisibleButton);
   const nannies = useSelector(selectNannyList);
   const error = useSelector(selectNannyError);
   const isLoading = useSelector(selectNannyLoading);
   const dispatch = useDispatch();
+  const nannyListRef = useRef(null);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  //
+
+  const handleScroll = () => {
+    setScrollPosition(nannyListRef.current.scrollTop);
+  };
 
   useEffect(() => {
     dispatch(fetchUserData(currentPage));
   }, [currentPage, dispatch]);
 
+  useEffect(() => {
+    if (nannyListRef.current) {
+      nannyListRef.current.scrollTop = scrollPosition;
+    }
+  }, [scrollPosition]);
+
+  useEffect(() => {
+    if (!isLoading || !nannyListRef.current) return;
+    nannyListRef.current.scrollTop = nannyListRef.current.scrollHeight;
+  }, [isLoading]);
+
   return (
     <n.PageWrapper>
       <NanniesSelect />
       {!nannies.length && !error && !isLoading && <NotFound />}
-      {nannies.length !== 0 && (
-        <n.NannyList>
+      {isLoading && !error ? (
+        <Loader />
+      ) : (
+        <n.NannyList ref={nannyListRef} onScroll={handleScroll}>
           {nannies.map((item) => (
             <NannyCard key={item.id} nanny={item} />
           ))}
         </n.NannyList>
       )}
+      {/* {nannies.length !== 0 && (
+        <n.NannyList ref={nannyListRef} onScroll={handleScroll}>
+          {nannies.map((item) => (
+            <NannyCard key={item.id} nanny={item} />
+          ))}
+        </n.NannyList>
+      )} */}
+      {/* {isLoading && !error && <Loader />} */}
       {isVisibleButton && !isLoading && (
         <n.LoadMoreButton
           type="button"
-          onClick={() => dispatch(updateCurrentPage())}
+          onClick={() => {
+            setCurrentPage(currentPage + 1);
+          }}
+          // onClick={() => dispatch(updateCurrentPage())}
         >
           Load more
         </n.LoadMoreButton>

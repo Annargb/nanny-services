@@ -1,10 +1,22 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as n from "./CustomTimePicker.styled";
 import icons from "../../images/icons.svg";
 
 export const CustomTimePicker = (name) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedTime, setSelectedTime] = useState("00:00");
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const optionWrapperRef = useRef(null);
+
+  const handleScroll = () => {
+    setScrollPosition(optionWrapperRef.current.scrollTop);
+  };
+
+  useEffect(() => {
+    if (isOpen && optionWrapperRef.current) {
+      optionWrapperRef.current.scrollTop = scrollPosition;
+    }
+  }, [isOpen, scrollPosition]);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -14,6 +26,22 @@ export const CustomTimePicker = (name) => {
     setSelectedTime(time);
     setIsOpen(false);
   };
+
+  const handleOutsideClick = (event) => {
+    if (
+      optionWrapperRef.current &&
+      !optionWrapperRef.current.contains(event.target)
+    ) {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
 
   return (
     <n.Container>
@@ -31,7 +59,7 @@ export const CustomTimePicker = (name) => {
       {isOpen && (
         <n.Dropdown>
           <n.Title>Meeting time</n.Title>
-          <n.OptionWrapper>
+          <n.OptionWrapper ref={optionWrapperRef} onScroll={handleScroll}>
             {[...Array(48)].map((_, index) => {
               const hours = Math.floor(index / 2);
               const minutes = index % 2 === 0 ? "00" : "30";
@@ -54,22 +82,3 @@ export const CustomTimePicker = (name) => {
     </n.Container>
   );
 };
-
-// import { useState } from "react";
-// import * as n from "./CustomTimePicker.styled";
-
-// export const CustomTimePicker = () => {
-//   const [time, setTime] = useState("10:00");
-
-//   return (
-//     <n.StyledTimePicker
-//       onChange={setTime}
-//       value={time}
-//       format="HH:mm"
-//       minTime="00:00"
-//       maxTime="23:30"
-//       disableClock={true}
-//       clearIcon={null}
-//     />
-//   );
-// };

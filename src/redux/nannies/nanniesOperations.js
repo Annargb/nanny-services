@@ -52,7 +52,6 @@ export const fetchFilteredData = createAsyncThunk(
       switch (option) {
         case "az":
           dbQuery = query(dbRef, orderByChild("name"));
-          console.log(dbQuery);
           break;
         case "za":
           dbQuery = query(dbRef, orderByChild("name"));

@@ -104,63 +104,6 @@ export const ClockIcon = styled.svg`
   width: 20px;
   height: 20px;
   top: 16px;
-  right: 16px;
+  right: -14px;
   cursor: pointer;
 `;
-
-// import TimePicker from "react-time-picker";
-// import styled from "styled-components";
-
-// export const StyledTimePicker = styled(TimePicker)`
-//   width: 200px;
-//   height: 40px;
-//   border: 1px solid #ccc;
-//   border-radius: 5px;
-//   padding: 8px;
-//   font-size: 16px;
-//   color: #333;
-//   position: relative;
-
-//   /* Стилі для випадаючого списку */
-//   .react-time-picker__wrapper {
-//     position: absolute;
-//     top: calc(100% + 8px);
-//     left: 0;
-//     width: 100%;
-//     max-height: 200px;
-//     overflow-y: auto;
-//     background-color: #fff;
-//     border: 1px solid #ccc;
-//     border-radius: 5px;
-//     padding: 4px;
-//     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-//   }
-
-//   /* Стилі для заголовка "Meeting time" */
-//   .react-time-picker__title {
-//     margin-bottom: 4px;
-//     padding: 4px 8px;
-//     font-weight: bold;
-//     border-bottom: 1px solid #ccc;
-//   }
-
-//   /* Стилі для опцій (годин і хвилин) */
-//   .react-time-picker__inputGroup {
-//     display: flex;
-//     flex-wrap: wrap;
-//   }
-
-//   .react-time-picker__inputGroup__input {
-//     flex: 0 0 calc(50% - 4px);
-//     margin: 2px;
-//     padding: 4px 8px;
-//     background-color: #f0f0f0;
-//     border-radius: 4px;
-//     cursor: pointer;
-//     transition: background-color 0.3s ease;
-//   }
-
-//   .react-time-picker__inputGroup__input:hover {
-//     background-color: #e0e0e0;
-//   }
-// `;
