@@ -15,6 +15,7 @@ const initialState = {
   error: null,
   loading: false,
   nannyList: [],
+  filteredList: [],
   // currentPage: 1,
   filter: null,
   isVisibleButton: true,
@@ -39,12 +40,21 @@ const nanniesSlice = createSlice({
       .addCase(fetchUserData.pending, handlePending)
       .addCase(fetchUserData.fulfilled, (state, action) => {
         state.loading = false;
+        state.filter = null;
+        state.isVisibleButton = true;
+
         const fetchedArr = state.nannyList.some(
           (item) => item.id === action.payload[0].id
         );
 
+        // if (!fetchedArr) {
+        //   state.nannyList.push(...action.payload);
+        // }
+
         if (!fetchedArr) {
           state.nannyList.push(...action.payload);
+        } else {
+          state.nannyList = action.payload;
         }
 
         if (action.payload.length < 3) {
@@ -56,17 +66,7 @@ const nanniesSlice = createSlice({
       .addCase(fetchFilteredData.pending, handlePending)
       .addCase(fetchFilteredData.fulfilled, (state, action) => {
         state.loading = false;
-        ///
-
-        if (action.payload.length > 3 || action.payload.length === 0) {
-          state.isVisibleButton = false;
-        }
-
-        // if (action.payload.length === 3) {
-        //   state.isVisibleButton = false;
-        // } else {
-        //   state.isVisibleButton = false;
-        // }
+        state.isVisibleButton = false;
 
         state.nannyList = action.payload;
         state.error = null;

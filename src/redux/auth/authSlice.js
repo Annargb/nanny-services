@@ -16,7 +16,7 @@ const initialState = {
   userName: null,
   error: null,
   loading: false,
-  userData: [],
+  // userData: [],
   currentPage: 1,
 };
 

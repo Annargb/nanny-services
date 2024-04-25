@@ -1,31 +1,22 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Formik } from "formik";
 import { logInUser } from "../../redux/auth/authOperations";
-import { selectAuthError } from "../../redux/auth/selectors";
 import { loginSchema } from "../../schemas/schemas";
 import icons from "../../images/icons.svg";
 import * as n from "../RegistrationForm/RegistrationForm.styled";
-
 
 export const LoginForm = ({ closeModal }) => {
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const authError = useSelector(selectAuthError);
 
   const handleSubmit = async ({ email, password }) => {
-    try {
-      const response = await dispatch(logInUser({ email, password }));
-      console.log(response);
-      console.log(authError);
-      if (!authError) {
-        closeModal();
-        navigate("/nannies");
-      }
-    } catch (error) {
-      console.log(error);
+    const response = await dispatch(logInUser({ email, password }));
+    if (!response.error) {
+      closeModal();
+      navigate("/nannies");
     }
   };
 

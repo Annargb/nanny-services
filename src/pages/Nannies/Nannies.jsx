@@ -26,8 +26,6 @@ const Nannies = () => {
   const nannyListRef = useRef(null);
   const [currentPage, setCurrentPage] = useState(1);
 
-  //
-
   const handleScroll = () => {
     setScrollPosition(nannyListRef.current.scrollTop);
   };
@@ -60,14 +58,6 @@ const Nannies = () => {
           ))}
         </n.NannyList>
       )}
-      {/* {nannies.length !== 0 && (
-        <n.NannyList ref={nannyListRef} onScroll={handleScroll}>
-          {nannies.map((item) => (
-            <NannyCard key={item.id} nanny={item} />
-          ))}
-        </n.NannyList>
-      )} */}
-      {/* {isLoading && !error && <Loader />} */}
       {isVisibleButton && !isLoading && (
         <n.LoadMoreButton
           type="button"

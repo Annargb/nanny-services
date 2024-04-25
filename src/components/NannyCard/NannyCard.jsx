@@ -7,7 +7,10 @@ import { NannyDetails } from "../NannyDetails/NannyDetails";
 import { CommonModal } from "../Modal/Modal";
 import { AppointmentForm } from "../AppointmentForm/AppointmentForm";
 
-import { toggleFavorites } from "../../redux/favorites/favoritesOperations";
+import {
+  addToFavorites,
+  // toggleFavorites,
+} from "../../redux/favorites/favoritesOperations";
 import { appointmentStyles } from "../../styles/modalStyles";
 
 export const NannyCard = ({ nanny }) => {
@@ -33,7 +36,8 @@ export const NannyCard = ({ nanny }) => {
 
   const handleFavoriteClick = async () => {
     setIsFavorite(!isFavorite);
-    await dispatch(toggleFavorites(nanny));
+    // await dispatch(toggleFavorites(nanny));
+    dispatch(addToFavorites(nanny));
   };
 
   return (

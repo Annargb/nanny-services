@@ -13,12 +13,12 @@ export const RegistrationForm = ({ closeModal }) => {
   const navigate = useNavigate();
 
   const handleSubmit = async ({ name, email, password }) => {
-    try {
-      await dispatch(registerUser({ email, password, displayName: name }));
+    const response = await dispatch(
+      registerUser({ email, password, displayName: name })
+    );
+    if (!response.error) {
       closeModal();
       navigate("/nannies");
-    } catch (error) {
-      console.log(error);
     }
   };
 
