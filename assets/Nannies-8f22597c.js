@@ -1,4 +1,4 @@
-import{u as E,j as d,i as he,F as ir,a as fn,E as or,r as h,b as ar,c as sr,d as xt,C as ur,e as lr,f as cr,m as dr,R as Rt,g as fr,s as pr,h as hr,k as Et,l as Ve,n as mr}from"./index-3af4f75e.js";const vr=e=>e.nannies.nannyList,gr=e=>e.nannies.isVisibleButton,br=e=>e.nannies.error,xr=e=>e.nannies.loading,Er="useandom-26T198340PX75pxJACKVERYMINDBUSHWOLF_GQZbfghjklqvwyzrict";let Cr=(e=21)=>{let t="",r=crypto.getRandomValues(new Uint8Array(e));for(;e--;)t+=Er[r[e]&63];return t};const yr=E.ul`
+import{u as E,j as d,i as he,F as ir,a as fn,E as or,r as h,b as ar,c as sr,d as xt,C as ur,e as lr,f as cr,m as dr,R as Rt,g as fr,s as pr,h as hr,k as Et,l as Ve,n as mr}from"./index-a3c3023a.js";const vr=e=>e.nannies.nannyList,gr=e=>e.nannies.isVisibleButton,br=e=>e.nannies.error,xr=e=>e.nannies.loading,Er="useandom-26T198340PX75pxJACKVERYMINDBUSHWOLF_GQZbfghjklqvwyzrict";let Cr=(e=21)=>{let t="",r=crypto.getRandomValues(new Uint8Array(e));for(;e--;)t+=Er[r[e]&63];return t};const yr=E.ul`
   display: flex;
   flex-direction: column;
   gap: 25px;
@@ -46,7 +46,8 @@ import{u as E,j as d,i as he,F as ir,a as fn,E as or,r as h,b as ar,c as sr,d as
 `,Pr=({reviews:e})=>d.jsx(yr,{children:e.map(t=>d.jsxs("li",{children:[d.jsxs(Sr,{children:[d.jsx(wr,{children:d.jsx(Fr,{children:t.reviewer.charAt(0).toUpperCase()})}),d.jsxs("div",{children:[d.jsx(Ar,{children:t.reviewer}),d.jsxs(Dr,{children:[d.jsx(Ir,{children:d.jsx("use",{href:`${he}#star`})}),d.jsx(Mr,{children:t.rating.toFixed(1)})]})]})]}),d.jsx(Or,{children:t.comment})]},Cr()))}),Vr=E.li`
   display: flex;
   gap: 24px;
-  width: 1184px;
+  max-width: 1184px;
+  width: 100%;
   ///
   min-height: 318px;
   border-radius: 24px;
@@ -56,6 +57,12 @@ import{u as E,j as d,i as he,F as ir,a as fn,E as or,r as h,b as ar,c as sr,d as
 
   &:last-child {
     margin-bottom: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column; /* Змінюємо напрямок на стовпчик для малих екранів */
+    align-items: center; /* Центруємо елементи по горизонталі для малих екранів */
+    padding: 16px; /* Зменшуємо відступи для малих екранів */
   }
 `,$r=E.div`
   position: relative;
@@ -96,7 +103,8 @@ import{u as E,j as d,i as he,F as ir,a as fn,E as or,r as h,b as ar,c as sr,d as
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 992px;
+  max-width: 992px;
+  width: 100%;
   margin-bottom: 8px;
 `,Tr=E.h3`
   font-weight: 500;
@@ -118,24 +126,6 @@ import{u as E,j as d,i as he,F as ir,a as fn,E as or,r as h,b as ar,c as sr,d as
 `,et=E.li`
   display: flex;
   align-items: center;
-  /* flex-shrink: 0; */
-  /* gap: 8px; */
-
-  /* &:nth-child(-n + 2) {
-    position: relative;
-    &::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 2px;
-      width: 2px;
-      height: 16px;
-      background-color: ${e=>e.theme.colors.textBorder};
-    }
-  } */
-
-  /* padding-right: 16px; */
-  /* border-right: 1px solid ${e=>e.theme.colors.textBorder}; */
 `,Lt=E.span`
   display: inline-block;
   flex-shrink: 0;
@@ -465,6 +455,10 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   padding: 64px 96px 100px 96px;
   min-height: 100vh;
   background-color: ${e=>e.theme.colors.grayBackgraund};
+
+  @media screen and (max-width: 768px) {
+    padding: 64px 24px 100px 24px; /* Зменшуємо відступи для малих екранів */
+  }
 `,vu=E.ul`
   margin-bottom: 64px;
 `,gu=E.button`
