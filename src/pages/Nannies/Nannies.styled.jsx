@@ -4,6 +4,10 @@ export const PageWrapper = styled.div`
   padding: 64px 96px 100px 96px;
   min-height: 100vh;
   background-color: ${(p) => p.theme.colors.grayBackgraund};
+
+  @media screen and (max-width: 768px) {
+    padding: 64px 24px 100px 24px; /* Зменшуємо відступи для малих екранів */
+  }
 `;
 
 export const NannyList = styled.ul`

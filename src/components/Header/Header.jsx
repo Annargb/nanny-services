@@ -9,6 +9,7 @@ import { LoginForm } from "../LoginForm/LoginForm";
 import icons from "../../images/icons.svg";
 import { authModalStyles } from "../../styles/modalStyles";
 import * as n from "./Header.styled";
+import { BurgerMenu } from "../BurgerMenu/BurgerMenu";
 
 export const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -96,6 +97,7 @@ export const Header = () => {
             )}
           </li>
         </n.ButtonWrapper>
+        <BurgerMenu />
       </n.LinkButtonWrapper>
       <CommonModal
         isModalOpen={isModalOpen}

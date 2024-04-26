@@ -1,14 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import {
-  collection,
-  // doc,
-  // getDocs,
-  setDoc,
-  doc,
-  getDoc,
-  // deleteDoc,
-} from "firebase/firestore";
+import { collection, setDoc, doc, getDoc } from "firebase/firestore";
 import { auth, db } from "../../firebase/firebase";
+
 import toast from "react-hot-toast";
 
 export const addToFavorites = createAsyncThunk(
@@ -31,7 +24,6 @@ export const addToFavorites = createAsyncThunk(
       if (docSnap.exists()) {
         console.log("Document data:", docSnap.data());
       } else {
-        // docSnap.data() will be undefined in this case
         console.log("No such document!");
       }
       // const usersCollection = collection(db, "users");

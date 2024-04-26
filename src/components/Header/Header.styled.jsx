@@ -7,7 +7,8 @@ export const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 1376px;
+  max-width: 1376px;
+  width: 100%;
   padding: 20px 96px;
   border-bottom: 1px solid;
   border-color: ${(p) => p.theme.colors.borderColor};
@@ -28,18 +29,38 @@ export const Header = styled.header`
         return "static";
     }
   }};
+
+  @media screen and (max-width: 1024px) {
+    padding: 20px;
+  }
 `;
 
 export const LinkButtonWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 92px;
+
+  @media screen and (max-width: 1024px) {
+    gap: 48px;
+  }
+
+  @media screen and (max-width: 768px) {
+    gap: 20px;
+  }
 `;
 
 export const NavWrapper = styled.nav`
   display: flex;
   align-items: center;
   gap: 40px;
+
+  @media screen and (max-width: 1024px) {
+    gap: 20px;
+  }
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const HeaderLink = styled(NavLink)`
@@ -74,6 +95,10 @@ export const Logo = styled(Link)`
   line-height: 1.17;
   letter-spacing: -0.02em;
   color: ${(p) => p.theme.colors.white};
+
+  @media screen and (max-width: 1024px) {
+    font-size: 20px;
+  }
 `;
 
 export const ButtonWrapper = styled.ul`
@@ -88,10 +113,15 @@ export const ButtonWrapper = styled.ul`
         return "8px";
     }
   }};
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+  }
 `;
 
 export const LogInButton = styled.button`
-  width: 124px;
+  max-width: 124px;
+  width: 100%;
   height: 48px;
   padding: 14px 38px;
   background-color: transparent;
@@ -112,10 +142,17 @@ export const LogInButton = styled.button`
     color: ${(p) => p.theme.colors.green};
     background-color: ${(p) => p.theme.colors.white};
   }
+
+  @media screen and (max-width: 1024px) {
+    font-size: 14px;
+    line-height: 1;
+    padding: 12px 36px;
+  }
 `;
 
 export const RegistrationLogOutButton = styled(LogInButton)`
-  width: 168px;
+  max-width: 168px;
+  width: 100%;
   background-color: ${(p) => p.theme.colors.green};
   border: 1px solid;
   transition:
@@ -167,4 +204,8 @@ export const UserName = styled.p`
   line-height: 1.11;
   letter-spacing: -0.01em;
   color: ${(p) => p.theme.colors.white};
+
+  @media screen and (max-width: 1024px) {
+    font-size: 16px;
+  }
 `;

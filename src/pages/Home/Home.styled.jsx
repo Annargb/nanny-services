@@ -5,7 +5,8 @@ import home2px from "../../images/home2x.png";
 
 export const HomeWrapper = styled.div`
   display: flex;
-  width: 1376px;
+  max-width: 1376px;
+  width: 100%;
   height: 736px;
   border-radius: 30px;
   background-color: ${(p) => p.theme.colors.green};
@@ -14,7 +15,7 @@ export const HomeWrapper = styled.div`
 export const TextWrapper = styled.div`
   width: 677px;
   height: 736px;
-  padding: 251px 64px 0 96px;
+  padding: 0 64px 0 96px;
 `;
 
 export const Title = styled.h1`
@@ -24,6 +25,12 @@ export const Title = styled.h1`
   letter-spacing: -0.03em;
   color: ${(p) => p.theme.colors.white};
   margin-bottom: 28px;
+  padding-top: 251px;
+
+  @media screen and (max-width: 1264px) {
+    padding-top: 150px;
+    font-size: 55px;
+  }
 `;
 
 export const Text = styled.p`

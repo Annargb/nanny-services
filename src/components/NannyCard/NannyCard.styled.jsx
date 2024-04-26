@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const CardWrapper = styled.li`
   display: flex;
   gap: 24px;
-  width: 1184px;
+  max-width: 1184px;
+  width: 100%;
   ///
   min-height: 318px;
   border-radius: 24px;
@@ -13,6 +14,12 @@ export const CardWrapper = styled.li`
 
   &:last-child {
     margin-bottom: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column; /* Змінюємо напрямок на стовпчик для малих екранів */
+    align-items: center; /* Центруємо елементи по горизонталі для малих екранів */
+    padding: 16px; /* Зменшуємо відступи для малих екранів */
   }
 `;
 
@@ -61,7 +68,8 @@ export const TopWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 992px;
+  max-width: 992px;
+  width: 100%;
   margin-bottom: 8px;
 `;
 
@@ -93,24 +101,6 @@ export const IconMap = styled.svg`
 export const TextWrapper = styled.li`
   display: flex;
   align-items: center;
-  /* flex-shrink: 0; */
-  /* gap: 8px; */
-
-  /* &:nth-child(-n + 2) {
-    position: relative;
-    &::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 2px;
-      width: 2px;
-      height: 16px;
-      background-color: ${(p) => p.theme.colors.textBorder};
-    }
-  } */
-
-  /* padding-right: 16px; */
-  /* border-right: 1px solid ${(p) => p.theme.colors.textBorder}; */
 `;
 
 export const TextDelimiter = styled.span`
