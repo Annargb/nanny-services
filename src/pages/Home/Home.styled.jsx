@@ -4,21 +4,44 @@ import home1px from "../../images/home1x.png";
 import home2px from "../../images/home2x.png";
 
 export const HomeWrapper = styled.div`
-  display: flex;
+  position: relative;
+  /* display: flex; */
   max-width: 1376px;
   width: 100%;
   height: 736px;
+  /* max-height: 736px; */
+  ///
+  height: auto;
   border-radius: 30px;
   background-color: ${(p) => p.theme.colors.green};
+  background-repeat: no-repeat;
+  background-image: image-set(url(${home1px}) 1x, url(${home2px}) 2x);
+  /* background-image: linear-gradient(
+      ${(p) => p.theme.colors.gradientColor},
+      ${(p) => p.theme.colors.gradientColor}
+    ),
+    image-set(url(${home1px}) 1x, url(${home2px}) 2x); */
+  background-position: right bottom;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  padding: 0 96px;
+
+  @media screen and (max-width: 1024px) {
+    padding: 0 20px;
+  }
 `;
 
 export const TextWrapper = styled.div`
-  width: 677px;
+  /* width: 677px; */
   height: 736px;
-  padding: 0 64px 0 96px;
+  /* padding: 0 64px 0 96px; */
 `;
 
 export const Title = styled.h1`
+  position: relative;
+  z-index: 1;
+  max-width: 517px;
+  width: 100%;
   font-weight: 500;
   font-size: 70px;
   line-height: 1;
@@ -34,6 +57,10 @@ export const Title = styled.h1`
 `;
 
 export const Text = styled.p`
+  position: relative;
+  z-index: 1;
+  max-width: 517px;
+  width: 100%;
   font-weight: 400;
   font-size: 28px;
   line-height: 1.07;
@@ -61,6 +88,8 @@ export const ArrowRight = styled(ArrowUp)`
 
 export const RedirectLink = styled(Link)`
   position: relative;
+  z-index: 1;
+  position: relative;
   display: inline-block;
   width: 230px;
   padding: 18px 50px;
@@ -85,11 +114,20 @@ export const RedirectLink = styled(Link)`
 `;
 
 export const ImgWrapper = styled.div`
-  position: relative;
+  position: absolute;
+  top: 0;
+  right: 0;
   max-width: 699px;
   width: 100%;
-  max-height: 736px;
-  background-repeat: no-repeat;
+  height: 736px;
+  background-image: linear-gradient(
+    ${(p) => p.theme.colors.gradientColor},
+    ${(p) => p.theme.colors.gradientColor}
+  );
+  border-radius: 30px;
+  /* border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px; */
+  /* background-repeat: no-repeat;
   background-image: linear-gradient(
       ${(p) => p.theme.colors.gradientColor},
       ${(p) => p.theme.colors.gradientColor}
@@ -97,7 +135,7 @@ export const ImgWrapper = styled.div`
     image-set(url(${home1px}) 1x, url(${home2px}) 2x);
   background-size: cover;
   border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
+  border-bottom-right-radius: 30px; */
 `;
 
 export const InfoWrapper = styled.div`
@@ -111,6 +149,11 @@ export const InfoWrapper = styled.div`
   padding: 32px;
   border-radius: 20px;
   background-color: ${(p) => p.theme.colors.white};
+
+  @media screen and (max-width: 1024px) {
+    bottom: 30px;
+    right: 30px;
+  }
 `;
 
 export const CheckWrapper = styled.div`

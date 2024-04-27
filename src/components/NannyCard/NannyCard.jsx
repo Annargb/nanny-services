@@ -49,7 +49,7 @@ export const NannyCard = ({ nanny }) => {
       <div>
         <n.TopWrapper>
           <n.NannyTitle>Nanny</n.NannyTitle>
-          <n.TitleButtonWrapper>
+          <n.TitleWrapper>
             <n.LocationRaitingWrapper>
               <n.TextWrapper>
                 <n.IconMap>
@@ -72,7 +72,7 @@ export const NannyCard = ({ nanny }) => {
                 </n.Text>
               </n.TextWrapper>
             </n.LocationRaitingWrapper>
-            <n.HeartButton
+            {/* <n.HeartButton
               type="button"
               // onClick={() => setIsFavorite(!isFavorite)}
               onClick={handleFavoriteClick}
@@ -86,9 +86,24 @@ export const NannyCard = ({ nanny }) => {
                   <use href={`${icons}#heart`} />
                 </n.IconHeart>
               )}
-            </n.HeartButton>
-          </n.TitleButtonWrapper>
+            </n.HeartButton> */}
+          </n.TitleWrapper>
         </n.TopWrapper>
+        <n.HeartButton
+          type="button"
+          // onClick={() => setIsFavorite(!isFavorite)}
+          onClick={handleFavoriteClick}
+        >
+          {isFavorite ? (
+            <n.PressedHeart>
+              <use href={`${icons}#full-heart`} />
+            </n.PressedHeart>
+          ) : (
+            <n.IconHeart>
+              <use href={`${icons}#heart`} />
+            </n.IconHeart>
+          )}
+        </n.HeartButton>
         <n.Name>{nanny.name}</n.Name>
         <NannyDetails nanny={nanny} />
         <n.About $biggerMargin={showReviews}>{nanny.about}</n.About>

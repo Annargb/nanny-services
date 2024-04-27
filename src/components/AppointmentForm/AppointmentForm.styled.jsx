@@ -67,9 +67,11 @@ export const FormWrapper = styled.div`
 
 export const SendButton = styled.button`
   border-radius: 30px;
-  padding: 16px 217px;
-  width: 470px;
-  height: 52px;
+  /* padding: 16px 217px; */
+  padding: 16px;
+  max-width: 470px;
+  width: 100%;
+  /* height: 52px; */
   border: 1px solid ${(p) => p.theme.colors.green};
   background-color: ${(p) => p.theme.colors.green};
   font-weight: 500;
@@ -90,15 +92,18 @@ export const SendButton = styled.button`
 
 export const Label = styled.label`
   position: relative;
-  width: 231px;
+  max-width: 231px;
+  width: 100%;
 `;
 
 export const LongLabel = styled(Label)`
-  width: 470px;
+  max-width: 470px;
+  width: 100%;
 `;
 
 export const Field = styled(FormikField)`
-  width: 231px;
+  max-width: 231px;
+  width: 100%;
   height: 52px;
   padding: 16px 18px;
   font-size: inherit;
@@ -125,11 +130,13 @@ export const Field = styled(FormikField)`
 `;
 
 export const LongField = styled(Field)`
-  width: 470px;
+  max-width: 470px;
+  width: 100%;
 `;
 
 export const TextArea = styled(Field)`
-  width: 470px;
+  max-width: 470px;
+  width: 100%;
   height: 116px;
   resize: none;
 `;

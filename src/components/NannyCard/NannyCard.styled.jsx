@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const CardWrapper = styled.li`
+  position: relative;
   display: flex;
   gap: 24px;
   max-width: 1184px;
@@ -17,9 +18,9 @@ export const CardWrapper = styled.li`
   }
 
   @media screen and (max-width: 768px) {
-    flex-direction: column; /* Змінюємо напрямок на стовпчик для малих екранів */
-    align-items: center; /* Центруємо елементи по горизонталі для малих екранів */
-    padding: 16px; /* Зменшуємо відступи для малих екранів */
+    flex-direction: column;
+    /* align-items: center; */
+    padding: 16px;
   }
 `;
 
@@ -71,6 +72,15 @@ export const TopWrapper = styled.div`
   max-width: 992px;
   width: 100%;
   margin-bottom: 8px;
+
+  ///
+  padding-right: 74px;
+
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
 `;
 
 export const NannyTitle = styled.h3`
@@ -83,9 +93,14 @@ export const NannyTitle = styled.h3`
 export const LocationRaitingWrapper = styled.ul`
   display: flex;
   gap: 16px;
+
+  @media screen and (max-width: 635px) {
+    flex-direction: column;
+    gap: 4px;
+  }
 `;
 
-export const TitleButtonWrapper = styled.div`
+export const TitleWrapper = styled.div`
   display: flex;
   gap: 48px;
   align-items: center;
@@ -110,6 +125,10 @@ export const TextDelimiter = styled.span`
   height: 16px;
   margin-left: 16px;
   background-color: ${(p) => p.theme.colors.textBorder};
+
+  @media screen and (max-width: 635px) {
+    display: none;
+  }
 `;
 
 export const Text = styled.p`
@@ -163,6 +182,9 @@ export const ReadMore = styled.button`
 `;
 
 export const HeartButton = styled.button`
+  position: absolute;
+  top: 24px;
+  right: 24px;
   width: 26px;
   height: 26px;
   display: flex;
@@ -197,7 +219,8 @@ export const AppointmentButton = styled.button`
   border: 1px solid;
   border-color: ${(p) => p.theme.colors.green};
   background-color: ${(p) => p.theme.colors.green};
-  width: 215px;
+  max-width: 215px;
+  width: 100%;
   transition:
     color 250ms ${(p) => p.theme.transition},
     background-color 250ms ${(p) => p.theme.transition};

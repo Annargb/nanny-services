@@ -75,6 +75,8 @@ export const ErrorMessage = styled(FormikError)`
 `;
 
 export const RegisterButton = styled.button`
+  max-width: 438px;
+  width: 100%;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.25;
@@ -84,7 +86,7 @@ export const RegisterButton = styled.button`
   border-radius: 30px;
   border: 1px solid;
   border-color: transparent;
-  padding: 12px 188px;
+  padding: 12px;
   transition:
     background-color 250ms ${(p) => p.theme.transition},
     border-color 250ms ${(p) => p.theme.transition},
