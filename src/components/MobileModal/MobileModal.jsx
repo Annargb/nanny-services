@@ -1,10 +1,11 @@
 import Modal from "react-modal";
 import icons from "../../images/icons.svg";
-import * as n from "./Modal.styled";
+import * as n from "./MobileModal.styled";
+import { MobileMenu } from "../MobileMenu/MobileMenu";
 
 Modal.setAppElement("#root");
 
-export const CommonModal = ({ children, isModalOpen, closeModal, styles }) => {
+export const MobileModal = ({ isModalOpen, closeModal, styles }) => {
   return (
     <Modal
       isOpen={isModalOpen}
@@ -17,7 +18,7 @@ export const CommonModal = ({ children, isModalOpen, closeModal, styles }) => {
           <use href={`${icons}#close`} />
         </n.CloseIcon>
       </n.CloseButton>
-      {children}
+      <MobileMenu />
     </Modal>
   );
 };

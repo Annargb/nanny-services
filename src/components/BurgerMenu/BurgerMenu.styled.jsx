@@ -18,10 +18,6 @@ export const ButtonMenu = styled.button`
     height: 32px;
     display: none;
   }
-
-  /* @media screen and (min-width: 1440px) {
-    display: none;
-  } */
 `;
 export const IconBurgerMenu = styled.svg`
   width: 24px;

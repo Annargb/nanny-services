@@ -1,19 +1,20 @@
 export const authModalStyles = {
   overlay: {
     background: "rgba(11, 11, 11, 0.6)",
+    zIndex: "11",
   },
   content: {
     top: "50%",
     left: "50%",
     right: "auto",
     bottom: "auto",
-    zIndex: "999999",
+    // zIndex: "999999",
     maxWidth: "566px",
     width: "90%",
-    minHeight: "490px",
+    // minHeight: "490px",
     maxHeight: "580px",
-    height: "90%",
-    overflow: "hidden",
+    // height: "90%",
+    overflow: "auto",
     padding: "64px",
     borderRadius: "30px",
     marginRight: "-50%",
@@ -43,5 +44,31 @@ export const appointmentStyles = {
     paddingLeft: "-5px",
     transform: "translate(-50%, -50%)",
     background: "#fbfbfb",
+  },
+};
+
+export const mobileMenuStyles = {
+  overlay: {
+    background: "rgba(11, 11, 11, 0.6)",
+    zIndex: "10",
+  },
+  content: {
+    top: "50%",
+    right: "0",
+    // right: "auto",
+    bottom: "auto",
+    left: "auto",
+    maxWidth: "400px",
+    width: "70%",
+    maxHeight: "720px",
+    height: "100%",
+    overflow: "'hidden',",
+    padding: "32px",
+    // borderRadius: "15px",
+    // marginRight: "-50%",
+    // paddingLeft: "-5px",
+    // transform: "translate(-50%, -50%)",
+    transform: "translateY(-50%)",
+    background: "#103931",
   },
 };

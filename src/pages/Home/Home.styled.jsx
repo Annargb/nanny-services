@@ -44,6 +44,7 @@ export const Title = styled.h1`
   width: 100%;
   font-weight: 500;
   font-size: 70px;
+  /* font-size: 4.375rem; */
   line-height: 1;
   letter-spacing: -0.03em;
   color: ${(p) => p.theme.colors.white};
@@ -51,8 +52,13 @@ export const Title = styled.h1`
   padding-top: 251px;
 
   @media screen and (max-width: 1264px) {
-    padding-top: 150px;
-    font-size: 55px;
+    padding-top: 170px;
+    font-size: 65px;
+  }
+
+  @media screen and (max-width: 1264px) {
+    /* padding-top: 150px; */
+    font-size: 45px;
   }
 `;
 
@@ -67,6 +73,10 @@ export const Text = styled.p`
   letter-spacing: -0.02em;
   color: ${(p) => p.theme.colors.white};
   margin-bottom: 64px;
+
+  @media screen and (max-width: 420px) {
+    margin-bottom: 34px;
+  }
 `;
 
 export const ArrowUp = styled.svg`
@@ -154,6 +164,12 @@ export const InfoWrapper = styled.div`
     bottom: 30px;
     right: 30px;
   }
+
+  @media screen and (max-width: 420px) {
+    width: 214px;
+    height: 100px;
+    padding: 16px;
+  }
 `;
 
 export const CheckWrapper = styled.div`
@@ -164,6 +180,11 @@ export const CheckWrapper = styled.div`
   width: 54px;
   height: 54px;
   background-color: ${(p) => p.theme.colors.green};
+
+  @media screen and (max-width: 420px) {
+    width: 44px;
+    height: 44px;
+  }
 `;
 
 export const CheckIcon = styled.svg`

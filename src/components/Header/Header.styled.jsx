@@ -1,15 +1,24 @@
 import styled from "styled-components";
 import { NavLink, Link } from "react-router-dom";
-
 export const Header = styled.header`
-  position: absolute;
-  z-index: 1;
+  position: relative;
+  max-width: 1376px;
+
+  /* padding: 20px; */
+  /* padding: 20px 96px; */
+`;
+
+export const HeaderContainer = styled.div`
+  z-index: 2;
+  top: 0;
+  right: auto;
+  left: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1376px;
+  /* max-width: 1376px; */
   width: 100%;
-  padding: 20px 96px;
+  padding: 20px;
   border-bottom: 1px solid;
   border-color: ${(p) => p.theme.colors.borderColor};
   background-color: ${({ $transparentBg }) => {
@@ -30,10 +39,55 @@ export const Header = styled.header`
     }
   }};
 
-  @media screen and (max-width: 1024px) {
-    padding: 20px;
+  @media screen and (min-width: 1024px) {
+    padding: 20px 96px;
   }
+
+  /* @media screen and (max-width: 1024px) {
+    /* padding: 20px; */
+  /* } */
 `;
+
+// export const Header = styled.header`
+//   z-index: 2;
+//   top: 0;
+//   right: auto;
+//   left: auto;
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   max-width: 1376px;
+//   width: 100%;
+//   padding: 20px;
+//   /* padding: 20px 96px; */
+//   border-bottom: 1px solid;
+//   border-color: ${(p) => p.theme.colors.borderColor};
+//   background-color: ${({ $transparentBg }) => {
+//     switch ($transparentBg) {
+//       case true:
+//         return "transparent";
+//       default:
+//         return (p) => p.theme.colors.green;
+//     }
+//   }};
+
+//   position: ${({ $transparentBg }) => {
+//     switch ($transparentBg) {
+//       case true:
+//         return "absolute";
+//       default:
+//         return "static";
+//     }
+//   }};
+
+//   @media screen and (min-width: 1024px) {
+//     padding: 20px 96px;
+//   }
+
+//   /* @media screen and (max-width: 1024px) {
+//     /* padding: 20px; */
+//   /* } */
+// `;
 
 export const LinkButtonWrapper = styled.div`
   display: flex;
@@ -104,7 +158,7 @@ export const Logo = styled(Link)`
 export const ButtonWrapper = styled.ul`
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   gap: ${({ $isUserExist }) => {
     switch ($isUserExist) {
       case true:
@@ -114,9 +168,13 @@ export const ButtonWrapper = styled.ul`
     }
   }};
 
-  @media screen and (max-width: 600px) {
-    flex-direction: column;
+  @media screen and (max-width: 768px) {
+    display: none;
   }
+
+  /* @media screen and (max-width: 600px) {
+    flex-direction: column;
+  } */
 `;
 
 export const LogInButton = styled.button`
@@ -124,6 +182,7 @@ export const LogInButton = styled.button`
   width: 100%;
   height: 48px;
   padding: 14px 38px;
+  /* padding: 14px; */
   background-color: transparent;
   border: 1px solid;
   border-color: ${(p) => p.theme.colors.borderColor};
@@ -148,6 +207,10 @@ export const LogInButton = styled.button`
     line-height: 1;
     padding: 12px 36px;
   }
+
+  @media screen and (max-width: 720px) {
+    padding: 12px 24px;
+  }
 `;
 
 export const RegistrationLogOutButton = styled(LogInButton)`
@@ -155,9 +218,9 @@ export const RegistrationLogOutButton = styled(LogInButton)`
   width: 100%;
   background-color: ${(p) => p.theme.colors.green};
   border: 1px solid;
-  transition:
+  /* transition:
     color 250ms ${(p) => p.theme.transition},
-    background-color 250ms ${(p) => p.theme.transition};
+    background-color 250ms ${(p) => p.theme.transition}; */
 
   border-color: ${({ $unvisibleBorder }) => {
     switch ($unvisibleBorder) {
@@ -168,11 +231,11 @@ export const RegistrationLogOutButton = styled(LogInButton)`
     }
   }};
 
-  &:hover,
+  /* &:hover,
   &:focus {
     color: ${(p) => p.theme.colors.green};
     background-color: ${(p) => p.theme.colors.white};
-  }
+  } */
 `;
 
 export const UserWrapper = styled.div`
