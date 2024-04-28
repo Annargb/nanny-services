@@ -1,4 +1,4 @@
-import{u as e,j as r}from"./index-4dc547b0.js";const o=e.div`
+import{u as e,j as r}from"./index-f32d5498.js";const o=e.div`
   padding: 64px 96px 100px 96px;
   min-height: 100vh;
   background-color: ${a=>a.theme.colors.grayBackgraund};
