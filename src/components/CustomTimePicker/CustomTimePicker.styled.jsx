@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   position: relative;
-  max-width: 200px;
+  /* max-width: 200px; */
   font-size: 16px;
 `;
 
@@ -105,6 +105,6 @@ export const ClockIcon = styled.svg`
   width: 20px;
   height: 20px;
   top: 16px;
-  right: -14px;
+  right: 16px;
   cursor: pointer;
 `;

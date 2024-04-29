@@ -48,7 +48,9 @@ const Nannies = () => {
   return (
     <n.PageWrapper>
       <NanniesSelect />
-      {!nannies.length && !error && !isLoading && <NotFound />}
+      {!nannies.length && !error && !isLoading && (
+        <NotFound text={`There are no matching options for your request`} />
+      )}
       {isLoading && !error ? (
         <Loader />
       ) : (

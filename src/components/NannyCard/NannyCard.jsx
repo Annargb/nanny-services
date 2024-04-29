@@ -1,22 +1,21 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import icons from "../../images/icons.svg";
 import { Rewiews } from "../Rewiews/Rewiews";
 import * as n from "./NannyCard.styled";
 import { NannyDetails } from "../NannyDetails/NannyDetails";
 import { CommonModal } from "../Modal/Modal";
 import { AppointmentForm } from "../AppointmentForm/AppointmentForm";
-
-import {
-  addToFavorites,
-  // toggleFavorites,
-} from "../../redux/favorites/favoritesOperations";
 import { appointmentStyles } from "../../styles/modalStyles";
+import { updateFavorites } from "../../redux/favorites/favoritesSlice";
+import { selectUserName } from "../../redux/auth/selectors";
+import toast from "react-hot-toast";
 
 export const NannyCard = ({ nanny }) => {
+  const isLogIn = useSelector(selectUserName);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showReviews, setShowReviews] = useState(false);
-  const [isFavorite, setIsFavorite] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(checkFavorite(nanny) || false);
 
   const dispatch = useDispatch();
 
@@ -34,10 +33,62 @@ export const NannyCard = ({ nanny }) => {
     setShowReviews(true);
   };
 
-  const handleFavoriteClick = async () => {
-    setIsFavorite(!isFavorite);
-    // await dispatch(toggleFavorites(nanny));
-    dispatch(addToFavorites(nanny));
+  useEffect(() => {
+    const storedFavorites = JSON.parse(localStorage.getItem("favorites"));
+    if (storedFavorites !== null && storedFavorites !== undefined) {
+      dispatch(updateFavorites(storedFavorites));
+    }
+  }, [dispatch]);
+
+  function checkFavorite(nanny) {
+    if (isLogIn) {
+      const storedFavorites =
+        JSON.parse(localStorage.getItem("favorites")) || [];
+      if (Array.isArray(storedFavorites)) {
+        return storedFavorites.some((favorite) => favorite.id === nanny.id);
+      }
+      return false;
+    } else {
+      return false;
+    }
+  }
+
+  const addToFavorites = (nanny) => {
+    let storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    if (!Array.isArray(storedFavorites)) {
+      storedFavorites = [];
+    }
+    const updatedFavorites = [...storedFavorites, nanny];
+    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+    setIsFavorite(true);
+    if (storedFavorites.length > 0) {
+      dispatch(updateFavorites(updatedFavorites));
+    }
+  };
+
+  const removeFromFavorites = (nanny) => {
+    let storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    const updatedFavorites = storedFavorites.filter(
+      (favorite) => favorite.id !== nanny.id
+    );
+
+    if (updatedFavorites.length === 0) {
+      localStorage.removeItem("favorites");
+      dispatch(updateFavorites([]));
+    } else {
+      localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+      dispatch(updateFavorites(updatedFavorites));
+    }
+
+    setIsFavorite(false);
+  };
+
+  const handleClick = (camper) => {
+    if (isLogIn) {
+      return isFavorite ? removeFromFavorites(camper) : addToFavorites(camper);
+    } else {
+      toast.error("You must be logged in to add to favorites");
+    }
   };
 
   return (
@@ -72,27 +123,13 @@ export const NannyCard = ({ nanny }) => {
                 </n.Text>
               </n.TextWrapper>
             </n.LocationRaitingWrapper>
-            {/* <n.HeartButton
-              type="button"
-              // onClick={() => setIsFavorite(!isFavorite)}
-              onClick={handleFavoriteClick}
-            >
-              {isFavorite ? (
-                <n.PressedHeart>
-                  <use href={`${icons}#full-heart`} />
-                </n.PressedHeart>
-              ) : (
-                <n.IconHeart>
-                  <use href={`${icons}#heart`} />
-                </n.IconHeart>
-              )}
-            </n.HeartButton> */}
           </n.TitleWrapper>
         </n.TopWrapper>
         <n.HeartButton
           type="button"
           // onClick={() => setIsFavorite(!isFavorite)}
-          onClick={handleFavoriteClick}
+          // onClick={handleFavoriteClick}
+          onClick={() => handleClick(nanny)}
         >
           {isFavorite ? (
             <n.PressedHeart>

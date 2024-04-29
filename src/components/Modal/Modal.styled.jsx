@@ -1,5 +1,17 @@
 import styled from "styled-components";
 
+export const ScrollContent = styled.div`
+  max-width: 600px;
+  width: 90%;
+  height: 90%;
+  max-height: 720px;
+  overflow: hidden;
+
+  @media screen and (max-width: 1024px) {
+    overflow-y: auto;
+  }
+`;
+
 export const CloseButton = styled.button`
   position: absolute;
   top: 20px;

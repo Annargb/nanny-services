@@ -23,6 +23,11 @@ export const FormTitle = styled.h2`
   letter-spacing: -0.02em;
   color: ${(p) => p.theme.colors.black};
   margin-bottom: 20px;
+
+  @media screen and (max-width: 395px) {
+    font-size: 28px;
+  }
+  /* padding-right: 32px; */
 `;
 
 export const FormText = styled.p`
@@ -71,7 +76,6 @@ export const SendButton = styled.button`
   padding: 16px;
   max-width: 470px;
   width: 100%;
-  /* height: 52px; */
   border: 1px solid ${(p) => p.theme.colors.green};
   background-color: ${(p) => p.theme.colors.green};
   font-weight: 500;
@@ -151,7 +155,7 @@ export const ErrorMessage = styled(FormikError)`
 
 export const OverflowScrollbarWrapper = styled.div`
   overflow-y: auto;
-  height: 310px;
+  height: 240px;
 
   &::-webkit-scrollbar {
     width: 8px;
