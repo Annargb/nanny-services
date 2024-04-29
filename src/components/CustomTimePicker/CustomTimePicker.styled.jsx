@@ -4,13 +4,14 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   position: relative;
-  width: 200px;
+  max-width: 200px;
   font-size: 16px;
 `;
 
 export const Field = styled(FormikField)`
   position: relative;
-  width: 231px;
+  max-width: 231px;
+  width: 100%;
   height: 52px;
   padding: 16px 18px;
   font-size: inherit;

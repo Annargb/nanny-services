@@ -4,7 +4,13 @@ import * as n from "./Modal.styled";
 
 Modal.setAppElement("#root");
 
-export const CommonModal = ({ children, isModalOpen, closeModal, styles }) => {
+export const CommonModal = ({
+  children,
+  isModalOpen,
+  closeModal,
+  styles,
+  $mobile,
+}) => {
   return (
     <Modal
       isOpen={isModalOpen}
@@ -13,7 +19,7 @@ export const CommonModal = ({ children, isModalOpen, closeModal, styles }) => {
       contentLabel="Custom Modal"
     >
       <n.CloseButton type="button" onClick={closeModal}>
-        <n.CloseIcon>
+        <n.CloseIcon $mobile={$mobile}>
           <use href={`${icons}#close`} />
         </n.CloseIcon>
       </n.CloseButton>

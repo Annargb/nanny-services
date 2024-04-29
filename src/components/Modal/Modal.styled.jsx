@@ -10,6 +10,14 @@ export const CloseButton = styled.button`
 export const CloseIcon = styled.svg`
   width: 20px;
   height: 20px;
+  fill: ${({ $mobile }) => {
+    switch ($mobile) {
+      case true:
+        return (p) => p.theme.colors.white;
+      default:
+        return (p) => p.theme.colors.black;
+    }
+  }};
   transition: fill 250ms ${(p) => p.theme.transition};
 
   &:hover,

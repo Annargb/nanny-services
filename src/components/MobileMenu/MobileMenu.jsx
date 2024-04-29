@@ -7,13 +7,16 @@ export const MobileMenu = ({ closeModal, register, login, logout }) => {
   const currentUserName = useSelector(selectUserName);
 
   const loginClick = () => {
+    // document.body.style.overflow = "hidden";
     login();
-    closeModal();
+    // document.body.style.overflow = "hidden";
+    // closeModal();
   };
 
   const registerClick = () => {
     register();
-    closeModal();
+    // document.body.style.overflow = "hidden";
+    // closeModal();
   };
 
   const loginOutClick = () => {

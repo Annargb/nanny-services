@@ -58,6 +58,7 @@ export const Header = () => {
   };
 
   const login = () => {
+    document.body.style.overflow = "hidden";
     setModalForm("login");
     openModal();
   };
@@ -127,6 +128,7 @@ export const Header = () => {
           {modalForm === "login" && <LoginForm closeModal={closeModal} />}
         </CommonModal>
         <CommonModal
+          $mobile={isMobileModalOpen}
           isModalOpen={isMobileModalOpen}
           closeModal={closeMobileModal}
           styles={mobileMenuStyles}
