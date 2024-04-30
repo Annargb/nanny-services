@@ -1,13 +1,11 @@
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 import { customStyles } from "../../styles/selectStyles";
 import * as n from "./NanniesSelect.styled";
-import { fetchFilteredData } from "../../redux/nannies/nanniesOperations";
-// import { selectFilterOption } from "../../redux/nannies/selectors";
-import { setFilterOption } from "../../redux/nannies/nanniesSlice";
+// import { fetchFilteredData } from "../../redux/nannies/nanniesOperations";
+// import { setFilterOption } from "../../redux/nannies/nanniesSlice";
 
-export const NanniesSelect = () => {
-  // const filterOption = useSelector(selectFilterOption);
-  const dispatch = useDispatch();
+export const NanniesSelect = ({ handleOptionChange }) => {
+  // const dispatch = useDispatch();
   const options = [
     { value: "az", label: "A to Z" },
     { value: "za", label: "Z to A" },
@@ -18,11 +16,11 @@ export const NanniesSelect = () => {
     { value: "all", label: "Show all" },
   ];
 
-  const handleOptionChange = (selectedOption) => {
-    console.log(`Вибрана опція: ${selectedOption.value}`);
-    dispatch(setFilterOption(selectedOption));
-    dispatch(fetchFilteredData(selectedOption.value));
-  };
+  // const handleOptionChange = (selectedOption) => {
+  //   console.log(`Вибрана опція: ${selectedOption.value}`);
+  //   dispatch(setFilterOption(selectedOption));
+  //   dispatch(fetchFilteredData(selectedOption.value));
+  // };
 
   return (
     <>

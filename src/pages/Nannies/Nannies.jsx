@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import { updateCurrentPage } from "../../redux/nannies/nanniesSlice";
-import { fetchUserData } from "../../redux/nannies/nanniesOperations";
+import {
+  fetchFilteredData,
+  fetchUserData,
+} from "../../redux/nannies/nanniesOperations";
 import {
   // selectCurrentPage,
   selectNannyError,
@@ -45,9 +48,15 @@ const Nannies = () => {
     nannyListRef.current.scrollTop = nannyListRef.current.scrollHeight;
   }, [isLoading]);
 
+  const handleOptionChange = (selectedOption) => {
+    console.log(`Вибрана опція: ${selectedOption.value}`);
+    // dispatch(setFilterOption(selectedOption));
+    dispatch(fetchFilteredData(selectedOption.value));
+  };
+
   return (
     <n.PageWrapper>
-      <NanniesSelect />
+      <NanniesSelect handleOptionChange={handleOptionChange} />
       {!nannies.length && !error && !isLoading && (
         <NotFound text={`There are no matching options for your request`} />
       )}
