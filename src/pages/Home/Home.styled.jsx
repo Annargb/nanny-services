@@ -22,8 +22,8 @@ export const HomeWrapper = styled.div`
     ),
     image-set(url(${home1px}) 1x, url(${home2px}) 2x); */
   background-position: right bottom;
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
+  /* border-top-right-radius: 30px; */
+  /* border-bottom-right-radius: 30px; */
   padding: 0 96px;
 
   @media screen and (max-width: 1024px) {
@@ -134,7 +134,9 @@ export const ImgWrapper = styled.div`
     ${(p) => p.theme.colors.gradientColor},
     ${(p) => p.theme.colors.gradientColor}
   );
-  border-radius: 30px;
+  /* border-radius: 30px; */
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
   /* border-top-right-radius: 30px;
   border-bottom-right-radius: 30px; */
   /* background-repeat: no-repeat;
@@ -146,6 +148,10 @@ export const ImgWrapper = styled.div`
   background-size: cover;
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px; */
+
+  @media screen and (max-width: 790px) {
+    border-radius: 30px;
+  }
 `;
 
 export const InfoWrapper = styled.div`

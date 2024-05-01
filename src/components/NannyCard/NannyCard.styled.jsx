@@ -92,7 +92,8 @@ export const NannyTitle = styled.h3`
 
 export const LocationRaitingWrapper = styled.ul`
   display: flex;
-  gap: 16px;
+  /* gap: 16px; */
+  gap: 32px;
 
   @media screen and (max-width: 635px) {
     flex-direction: column;
@@ -114,20 +115,28 @@ export const IconMap = styled.svg`
 `;
 
 export const TextWrapper = styled.li`
+  position: relative;
+  //
   display: flex;
   align-items: center;
-`;
+  //
 
-export const TextDelimiter = styled.span`
-  display: inline-block;
-  flex-shrink: 0;
-  width: 2px;
-  height: 16px;
-  margin-left: 16px;
-  background-color: ${(p) => p.theme.colors.textBorder};
+  &.pseudo {
+    &::before {
+      content: "";
+      position: absolute;
+      display: inline-block;
+      width: 2px;
+      height: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      left: -16px;
+      background-color: ${(p) => p.theme.colors.textBorder};
 
-  @media screen and (max-width: 635px) {
-    display: none;
+      @media screen and (max-width: 635px) {
+        display: none;
+      }
+    }
   }
 `;
 

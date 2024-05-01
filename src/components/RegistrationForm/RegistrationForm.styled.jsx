@@ -25,6 +25,10 @@ export const FormTitle = styled.h2`
   letter-spacing: -0.02em;
   color: ${(p) => p.theme.colors.black};
   margin-bottom: 20px;
+
+  @media screen and (max-width: 395px) {
+    font-size: 28px;
+  }
 `;
 
 export const FormText = styled.p`

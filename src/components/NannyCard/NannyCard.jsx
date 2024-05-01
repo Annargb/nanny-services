@@ -107,16 +107,14 @@ export const NannyCard = ({ nanny }) => {
                   <use href={`${icons}#map-pin`} />
                 </n.IconMap>
                 <n.Text>{nanny.location}</n.Text>
-                <n.TextDelimiter></n.TextDelimiter>
               </n.TextWrapper>
-              <n.TextWrapper>
+              <n.TextWrapper className="pseudo">
                 <n.IconStar>
                   <use href={`${icons}#star`} />
                 </n.IconStar>
                 <n.Text>Rating: {nanny.rating}</n.Text>
-                <n.TextDelimiter></n.TextDelimiter>
               </n.TextWrapper>
-              <n.TextWrapper>
+              <n.TextWrapper className="pseudo">
                 <n.Text>
                   Price / 1 hour:{" "}
                   <n.AccentText>{nanny.price_per_hour}$</n.AccentText>
