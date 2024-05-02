@@ -42,7 +42,7 @@ When you click on the Make an appointment button, a modal window opens with a fo
 
 ![Appointment Form](./src/assets/appointment.png)
 
-### Project made with
+### Project made with:
 
 - ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 - ![React-Router](https://img.shields.io/badge/reactrouter-%CA4245.svg?style=for-the-badge&logo=reactrouter&logoColor=white)

@@ -50,7 +50,6 @@ const Nannies = () => {
 
   const handleOptionChange = (selectedOption) => {
     console.log(`Вибрана опція: ${selectedOption.value}`);
-    // dispatch(setFilterOption(selectedOption));
     dispatch(fetchFilteredData(selectedOption.value));
   };
 

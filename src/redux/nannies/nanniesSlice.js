@@ -15,9 +15,9 @@ const initialState = {
   error: null,
   loading: false,
   nannyList: [],
-  filteredList: [],
+  // filteredList: [],
   // currentPage: 1,
-  filter: null,
+  // filter: null,
   isVisibleButton: true,
 };
 
@@ -25,15 +25,12 @@ const nanniesSlice = createSlice({
   name: "nannies",
   initialState,
   reducers: {
-    // updateCurrentPage(state) {
-    //   state.currentPage += 1;
+    // setFilterOption(state, action) {
+    //   state.filter = action.payload;
     // },
-    setFilterOption(state, action) {
-      state.filter = action.payload;
-    },
-    resetFilterOption(state) {
-      state.filter = null;
-    },
+    // resetFilterOption(state) {
+    //   state.filter = null;
+    // },
   },
   extraReducers: (builder) => {
     builder
@@ -46,10 +43,6 @@ const nanniesSlice = createSlice({
         const fetchedArr = state.nannyList.some(
           (item) => item.id === action.payload[0].id
         );
-
-        // if (!fetchedArr) {
-        //   state.nannyList.push(...action.payload);
-        // }
 
         if (!fetchedArr) {
           state.nannyList.push(...action.payload);
