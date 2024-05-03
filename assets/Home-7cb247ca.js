@@ -1,41 +1,28 @@
-import{u as r,L as d,j as t,i}from"./index-c02720e7.js";const n="/nanny-services/assets/home1x-f9eca0a9.png",a="/nanny-services/assets/home2x-1ca38526.png",p=r.div`
+import{u as i,L as s,j as t,i as r}from"./index-9ea3385d.js";const a="/nanny-services/assets/home1x-f9eca0a9.png",p="/nanny-services/assets/home2x-1ca38526.png",d=i.div`
   position: relative;
-  /* display: flex; */
   max-width: 1376px;
   width: 100%;
   height: 736px;
-  /* max-height: 736px; */
-  ///
   height: auto;
   border-radius: 30px;
   background-color: ${e=>e.theme.colors.green};
   background-repeat: no-repeat;
-  background-image: image-set(url(${n}) 1x, url(${a}) 2x);
-  /* background-image: linear-gradient(
-      ${e=>e.theme.colors.gradientColor},
-      ${e=>e.theme.colors.gradientColor}
-    ),
-    image-set(url(${n}) 1x, url(${a}) 2x); */
+  background-image: image-set(url(${a}) 1x, url(${p}) 2x);
   background-position: right bottom;
-  /* border-top-right-radius: 30px; */
-  /* border-bottom-right-radius: 30px; */
   padding: 0 96px;
 
   @media screen and (max-width: 1024px) {
     padding: 0 20px;
   }
-`,x=r.div`
-  /* width: 677px; */
+`,x=i.div`
   height: 736px;
-  /* padding: 0 64px 0 96px; */
-`,h=r.h1`
+`,h=i.h1`
   position: relative;
   z-index: 1;
   max-width: 517px;
   width: 100%;
   font-weight: 500;
   font-size: 70px;
-  /* font-size: 4.375rem; */
   line-height: 1;
   letter-spacing: -0.03em;
   color: ${e=>e.theme.colors.white};
@@ -48,10 +35,9 @@ import{u as r,L as d,j as t,i}from"./index-c02720e7.js";const n="/nanny-services
   }
 
   @media screen and (max-width: 1264px) {
-    /* padding-top: 150px; */
     font-size: 45px;
   }
-`,c=r.p`
+`,c=i.p`
   position: relative;
   z-index: 1;
   max-width: 517px;
@@ -66,7 +52,7 @@ import{u as r,L as d,j as t,i}from"./index-c02720e7.js";const n="/nanny-services
   @media screen and (max-width: 420px) {
     margin-bottom: 34px;
   }
-`,o=r.svg`
+`,o=i.svg`
   position: absolute;
   top: 22px;
   right: 45px;
@@ -74,12 +60,12 @@ import{u as r,L as d,j as t,i}from"./index-c02720e7.js";const n="/nanny-services
   height: 17px;
 
   transition: transform 250ms ${e=>e.theme.transition};
-`,s=r(o)`
+`,n=i(o)`
   width: 20px;
   height: 16px;
   right: 40px;
   transform: translateX(calc(50% + 50px));
-`,l=r(d)`
+`,l=i(s)`
   position: relative;
   z-index: 1;
   position: relative;
@@ -101,10 +87,10 @@ import{u as r,L as d,j as t,i}from"./index-c02720e7.js";const n="/nanny-services
     transform: translateY(-55px);
   }
 
-  &:hover ${s}, &:focus ${s} {
+  &:hover ${n}, &:focus ${n} {
     transform: translateX(calc(-50% + 10px));
   }
-`,g=r.div`
+`,m=i.div`
   position: absolute;
   top: 0;
   right: 0;
@@ -115,25 +101,13 @@ import{u as r,L as d,j as t,i}from"./index-c02720e7.js";const n="/nanny-services
     ${e=>e.theme.colors.gradientColor},
     ${e=>e.theme.colors.gradientColor}
   );
-  /* border-radius: 30px; */
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
-  /* border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px; */
-  /* background-repeat: no-repeat;
-  background-image: linear-gradient(
-      ${e=>e.theme.colors.gradientColor},
-      ${e=>e.theme.colors.gradientColor}
-    ),
-    image-set(url(${n}) 1x, url(${a}) 2x);
-  background-size: cover;
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px; */
 
   @media screen and (max-width: 790px) {
     border-radius: 30px;
   }
-`,m=r.div`
+`,g=i.div`
   display: flex;
   gap: 16px;
   position: absolute;
@@ -155,7 +129,7 @@ import{u as r,L as d,j as t,i}from"./index-c02720e7.js";const n="/nanny-services
     height: 100px;
     padding: 16px;
   }
-`,u=r.div`
+`,w=i.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -168,16 +142,16 @@ import{u as r,L as d,j as t,i}from"./index-c02720e7.js";const n="/nanny-services
     width: 44px;
     height: 44px;
   }
-`,b=r.svg`
+`,f=i.svg`
   width: 20px;
   height: 16px;
-`,w=r.p`
+`,u=i.p`
   margin-bottom: 6px;
   font-weight: 400;
   font-size: 16px;
   color: ${e=>e.theme.colors.textGrayColor};
-`,f=r.p`
+`,b=i.p`
   font-weight: 700;
   font-size: 24px;
   color: ${e=>e.theme.colors.black};
-`,j=()=>t.jsxs(p,{children:[t.jsxs(x,{children:[t.jsx(h,{children:"Make Life Easier for the Family:"}),t.jsx(c,{children:"Find Babysitters Online for All Occasions"}),t.jsxs(l,{to:"/nannies",children:["Get started",t.jsx(o,{children:t.jsx("use",{href:`${i}#arrow-up`})}),t.jsx(s,{children:t.jsx("use",{href:`${i}#arrow-right`})})]})]}),t.jsx(g,{children:t.jsxs(m,{children:[t.jsx(u,{children:t.jsx(b,{children:t.jsx("use",{href:`${i}#check`})})}),t.jsxs("div",{children:[t.jsx(w,{children:"Experienced nannies"}),t.jsx(f,{children:"15,000"})]})]})})]});export{j as default};
+`,j=()=>t.jsxs(d,{children:[t.jsxs(x,{children:[t.jsx(h,{children:"Make Life Easier for the Family:"}),t.jsx(c,{children:"Find Babysitters Online for All Occasions"}),t.jsxs(l,{to:"/nannies",children:["Get started",t.jsx(o,{children:t.jsx("use",{href:`${r}#arrow-up`})}),t.jsx(n,{children:t.jsx("use",{href:`${r}#arrow-right`})})]})]}),t.jsx(m,{children:t.jsxs(g,{children:[t.jsx(w,{children:t.jsx(f,{children:t.jsx("use",{href:`${r}#check`})})}),t.jsxs("div",{children:[t.jsx(u,{children:"Experienced nannies"}),t.jsx(b,{children:"15,000"})]})]})})]});export{j as default};

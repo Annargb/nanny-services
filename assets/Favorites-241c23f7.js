@@ -1,4 +1,4 @@
-import{u as i,a as u,r as n,b as m,d as g,j as t}from"./index-c02720e7.js";import{a as d,N as x,b as f}from"./NotFound-38d309aa.js";const b=i.div`
+import{u as i,a as u,r as n,b as m,d as g,j as t}from"./index-9ea3385d.js";import{a as d,N as x,b as f}from"./NotFound-4c3b37ad.js";const b=i.div`
   padding: 64px 96px 100px 96px;
   min-height: 100vh;
   background-color: ${e=>e.theme.colors.grayBackgraund};
