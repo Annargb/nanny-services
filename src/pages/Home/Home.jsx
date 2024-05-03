@@ -1,5 +1,5 @@
-import * as n from "./Home.styled";
 import icons from "../../images/icons.svg";
+import * as n from "./Home.styled";
 
 const Home = () => {
   return (

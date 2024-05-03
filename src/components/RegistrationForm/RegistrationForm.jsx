@@ -22,18 +22,6 @@ export const RegistrationForm = ({ closeModal }) => {
     }
   };
 
-  //     // const storageRef = ref(storage, `images/${Date.now() + name}`);
-  //     // const uploadTask = uploadBytesResumable(storageRef, file)
-  //     const user = userCredential.user;
-  //     console.log(user);
-  //     setAppUser(user);
-
-  //     // await setDoc(doc(db, "users", user.uid), {
-  //     //   uid: user.uid,
-  //     //   displayName: name,
-  //     //   email,
-  //     // });
-
   return (
     <Formik
       initialValues={{
@@ -41,7 +29,6 @@ export const RegistrationForm = ({ closeModal }) => {
         email: "",
         password: "",
       }}
-      // validationSchema={validationSchema}
       validationSchema={registerSchema}
       onSubmit={handleSubmit}
     >

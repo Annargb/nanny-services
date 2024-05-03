@@ -5,25 +5,15 @@ import home2px from "../../images/home2x.png";
 
 export const HomeWrapper = styled.div`
   position: relative;
-  /* display: flex; */
   max-width: 1376px;
   width: 100%;
   height: 736px;
-  /* max-height: 736px; */
-  ///
   height: auto;
   border-radius: 30px;
   background-color: ${(p) => p.theme.colors.green};
   background-repeat: no-repeat;
   background-image: image-set(url(${home1px}) 1x, url(${home2px}) 2x);
-  /* background-image: linear-gradient(
-      ${(p) => p.theme.colors.gradientColor},
-      ${(p) => p.theme.colors.gradientColor}
-    ),
-    image-set(url(${home1px}) 1x, url(${home2px}) 2x); */
   background-position: right bottom;
-  /* border-top-right-radius: 30px; */
-  /* border-bottom-right-radius: 30px; */
   padding: 0 96px;
 
   @media screen and (max-width: 1024px) {
@@ -32,9 +22,7 @@ export const HomeWrapper = styled.div`
 `;
 
 export const TextWrapper = styled.div`
-  /* width: 677px; */
   height: 736px;
-  /* padding: 0 64px 0 96px; */
 `;
 
 export const Title = styled.h1`
@@ -44,7 +32,6 @@ export const Title = styled.h1`
   width: 100%;
   font-weight: 500;
   font-size: 70px;
-  /* font-size: 4.375rem; */
   line-height: 1;
   letter-spacing: -0.03em;
   color: ${(p) => p.theme.colors.white};
@@ -57,7 +44,6 @@ export const Title = styled.h1`
   }
 
   @media screen and (max-width: 1264px) {
-    /* padding-top: 150px; */
     font-size: 45px;
   }
 `;
@@ -134,20 +120,8 @@ export const ImgWrapper = styled.div`
     ${(p) => p.theme.colors.gradientColor},
     ${(p) => p.theme.colors.gradientColor}
   );
-  /* border-radius: 30px; */
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
-  /* border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px; */
-  /* background-repeat: no-repeat;
-  background-image: linear-gradient(
-      ${(p) => p.theme.colors.gradientColor},
-      ${(p) => p.theme.colors.gradientColor}
-    ),
-    image-set(url(${home1px}) 1x, url(${home2px}) 2x);
-  background-size: cover;
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px; */
 
   @media screen and (max-width: 790px) {
     border-radius: 30px;

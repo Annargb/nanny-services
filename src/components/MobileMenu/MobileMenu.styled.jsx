@@ -67,16 +67,6 @@ export const LogInButton = styled.button`
     color: ${(p) => p.theme.colors.green};
     background-color: ${(p) => p.theme.colors.white};
   }
-
-  /* @media screen and (max-width: 1024px) {
-    font-size: 14px;
-    line-height: 1;
-    padding: 12px 36px;
-  }
-
-  @media screen and (max-width: 720px) {
-    padding: 12px 24px;
-  } */
 `;
 
 export const RegistrationLogOutButton = styled(LogInButton)`
@@ -84,15 +74,6 @@ export const RegistrationLogOutButton = styled(LogInButton)`
   width: 100%;
   background-color: ${(p) => p.theme.colors.green};
   border: 1px solid;
-  /* transition:
-    color 250ms ${(p) => p.theme.transition},
-    background-color 250ms ${(p) => p.theme.transition};
-
-  &:hover,
-  &:focus {
-    color: ${(p) => p.theme.colors.green};
-    background-color: ${(p) => p.theme.colors.white};
-  } */
 `;
 
 export const UserWrapper = styled.div`

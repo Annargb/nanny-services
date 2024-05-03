@@ -59,7 +59,6 @@ export const appointmentValidationSchema = Yup.object().shape({
     .length(5)
     .matches(/(\d){2}:(\d){2}/, 'Meeting time must have this pattern "00:00"')
     .required("Meeting time is required"),
-  //   time: Yup.number().required("Meeting time is required"),
   email: Yup.string()
     .trim()
     .matches(

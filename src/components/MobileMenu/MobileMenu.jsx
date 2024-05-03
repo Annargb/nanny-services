@@ -6,19 +6,6 @@ import * as n from "./MobileMenu.styled";
 export const MobileMenu = ({ closeModal, register, login, logout }) => {
   const currentUserName = useSelector(selectUserName);
 
-  const loginClick = () => {
-    // document.body.style.overflow = "hidden";
-    login();
-    // document.body.style.overflow = "hidden";
-    // closeModal();
-  };
-
-  const registerClick = () => {
-    register();
-    // document.body.style.overflow = "hidden";
-    // closeModal();
-  };
-
   const loginOutClick = () => {
     logout();
     closeModal();
@@ -42,12 +29,12 @@ export const MobileMenu = ({ closeModal, register, login, logout }) => {
       {!currentUserName ? (
         <n.ButtonWrapper>
           <li>
-            <n.LogInButton type="button" onClick={loginClick}>
+            <n.LogInButton type="button" onClick={login}>
               Log In
             </n.LogInButton>
           </li>
           <li>
-            <n.RegistrationLogOutButton type="button" onClick={registerClick}>
+            <n.RegistrationLogOutButton type="button" onClick={register}>
               Registration
             </n.RegistrationLogOutButton>
           </li>

@@ -27,7 +27,6 @@ export const FormTitle = styled.h2`
   @media screen and (max-width: 395px) {
     font-size: 28px;
   }
-  /* padding-right: 32px; */
 `;
 
 export const FormText = styled.p`
@@ -72,7 +71,6 @@ export const FormWrapper = styled.div`
 
 export const SendButton = styled.button`
   border-radius: 30px;
-  /* padding: 16px 217px; */
   padding: 16px;
   max-width: 470px;
   width: 100%;

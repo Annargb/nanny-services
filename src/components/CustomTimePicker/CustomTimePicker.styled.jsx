@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   position: relative;
-  /* max-width: 200px; */
   font-size: 16px;
 `;
 
@@ -45,8 +44,7 @@ export const Dropdown = styled.div`
   width: 150px;
   max-height: 180px;
   padding: 16px;
-  /* background-color: ${(p) => p.theme.colors.snowWhite}; */
-  background-color: #fff;
+  background-color: ${(p) => p.theme.colors.snowWhite};
   box-shadow: 0 20px 69px 0 rgba(0, 0, 0, 0.07);
   border-radius: 12px;
 `;

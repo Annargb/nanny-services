@@ -1,8 +1,8 @@
 import { Suspense } from "react";
-import { Header } from "../Header/Header";
 import { Outlet } from "react-router-dom";
-import { Container } from "../../styles/Container";
 import { Toaster } from "react-hot-toast";
+import { Header } from "../Header/Header";
+import { Container } from "../../styles/Container";
 
 const SharedLayout = () => {
   return (

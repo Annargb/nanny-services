@@ -1,12 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { updateCurrentPage } from "../../redux/nannies/nanniesSlice";
 import {
   fetchFilteredData,
   fetchUserData,
 } from "../../redux/nannies/nanniesOperations";
 import {
-  // selectCurrentPage,
   selectNannyError,
   selectNannyList,
   selectNannyLoading,
@@ -15,12 +13,11 @@ import {
 import { NannyCard } from "../../components/NannyCard/NannyCard";
 import { NanniesSelect } from "../../components/NanniesSelect/NanniesSelect";
 import { NotFound } from "../../components/NotFound/NotFound";
-import * as n from "./Nannies.styled";
 import Loader from "../../components/Loader/Loader";
+import * as n from "./Nannies.styled";
 
 const Nannies = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
-  // const currentPage = useSelector(selectCurrentPage);
   const isVisibleButton = useSelector(selectVisibleButton);
   const nannies = useSelector(selectNannyList);
   const error = useSelector(selectNannyError);
@@ -74,7 +71,6 @@ const Nannies = () => {
           onClick={() => {
             setCurrentPage(currentPage + 1);
           }}
-          // onClick={() => dispatch(updateCurrentPage())}
         >
           Load more
         </n.LoadMoreButton>
