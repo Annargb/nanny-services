@@ -12,12 +12,9 @@ const handleRejected = (state, action) => {
 };
 
 const initialState = {
-  userId: null,
   userName: null,
   error: null,
   loading: false,
-  // userData: [],
-  currentPage: 1,
 };
 
 const authSlice = createSlice({
@@ -29,7 +26,6 @@ const authSlice = createSlice({
       .addCase(registerUser.pending, handlePending)
       .addCase(registerUser.fulfilled, (state, action) => {
         state.loading = false;
-        state.userId = action.payload.userId;
         state.userName = action.payload.userName;
         state.error = null;
       })
@@ -37,7 +33,6 @@ const authSlice = createSlice({
       .addCase(logInUser.pending, handlePending)
       .addCase(logInUser.fulfilled, (state, action) => {
         state.loading = false;
-        state.userId = action.payload.userId;
         state.userName = action.payload.userName;
         state.error = null;
       })
@@ -45,7 +40,6 @@ const authSlice = createSlice({
       .addCase(logOut.pending, handlePending)
       .addCase(logOut.fulfilled, (state) => {
         state.loading = false;
-        state.userId = null;
         state.userName = null;
         state.error = null;
       })

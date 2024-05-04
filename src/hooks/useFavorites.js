@@ -6,7 +6,9 @@ import toast from "react-hot-toast";
 
 export const useFavorites = (nanny) => {
   const isLogIn = useSelector(selectUserName);
+
   const [isFavorite, setIsFavorite] = useState(checkFavorite(nanny));
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -59,6 +61,7 @@ export const useFavorites = (nanny) => {
   };
 
   const toggleFavorite = () => {
+    checkFavorite(nanny);
     if (isLogIn) {
       return isFavorite ? removeFromFavorites(nanny) : addToFavorites(nanny);
     } else {
@@ -66,5 +69,8 @@ export const useFavorites = (nanny) => {
     }
   };
 
-  return { isFavorite, toggleFavorite };
+  return {
+    isFavorite,
+    toggleFavorite,
+  };
 };

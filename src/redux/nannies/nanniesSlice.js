@@ -15,23 +15,13 @@ const initialState = {
   error: null,
   loading: false,
   nannyList: [],
-  // filteredList: [],
-  // currentPage: 1,
-  // filter: null,
   isVisibleButton: true,
 };
 
 const nanniesSlice = createSlice({
   name: "nannies",
   initialState,
-  reducers: {
-    // setFilterOption(state, action) {
-    //   state.filter = action.payload;
-    // },
-    // resetFilterOption(state) {
-    //   state.filter = null;
-    // },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchUserData.pending, handlePending)
@@ -70,4 +60,3 @@ const nanniesSlice = createSlice({
 
 export const nanniesReducer = nanniesSlice.reducer;
 export const { setFilterOption, resetFilterOption } = nanniesSlice.actions;
-// export const { updateCurrentPage } = nanniesSlice.actions;

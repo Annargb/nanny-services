@@ -3,6 +3,15 @@ name: Build and deploy to GitHub Pages
 on:
   push:
     branches: [main]
+env:
+  VITE_API_KEY: ${{secrets.VITE_API_KEY}}
+  VITE_AUTH_DOMAIN: ${{secrets.VITE_AUTH_DOMAIN}}
+  VITE_DATABASE_URL: ${{secrets.VITE_DATABASE_URL}}
+  VITE_PROJECT_ID: ${{secrets.VITE_PROJECT_ID}}
+  VITE_STORAGE_BUCKET: ${{secrets.VITE_STORAGE_BUCKET}}
+  VITE_MESSAGIN_SENDER_ID: ${{secrets.VITE_MESSAGIN_SENDER_ID}}
+  VITE_APP_ID: ${{secrets.VITE_APP_ID}}
+  VITE_MEASUREMENT_ID: ${{secrets.VITE_MEASUREMENT_ID}}
 
 jobs:
   build-and-deploy:

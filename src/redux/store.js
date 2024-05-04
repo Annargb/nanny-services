@@ -17,7 +17,7 @@ import { favoritesReducer } from "./favorites/favoritesSlice";
 const authPersistConfig = {
   key: "auth",
   storage,
-  whitelist: ["userName", "userId"],
+  whitelist: ["userName"],
 };
 
 export const store = configureStore({
@@ -32,7 +32,6 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
-  // devTools: process.env.NODE_ENV === "development",
 });
 
 export let persistor = persistStore(store);

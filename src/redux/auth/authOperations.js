@@ -20,7 +20,6 @@ export const registerUser = createAsyncThunk(
       await updateProfile(userCredential.user, { displayName });
       toast.success("Registration was successful");
       return {
-        userId: userCredential.user.uid,
         userName: userCredential.user.displayName,
       };
     } catch (error) {
@@ -45,7 +44,6 @@ export const logInUser = createAsyncThunk(
       );
       toast.success("Login was successful");
       return {
-        userId: userCredential.user.uid,
         userName: userCredential.user.displayName,
       };
     } catch (error) {

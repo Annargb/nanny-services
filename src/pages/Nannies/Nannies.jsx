@@ -46,7 +46,6 @@ const Nannies = () => {
   }, [isLoading]);
 
   const handleOptionChange = (selectedOption) => {
-    console.log(`Вибрана опція: ${selectedOption.value}`);
     dispatch(fetchFilteredData(selectedOption.value));
   };
 
